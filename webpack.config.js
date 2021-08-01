@@ -67,7 +67,7 @@ const babelOptions = preset => {
     const opts = {
         presets: [
             ["@babel/preset-env", {
-                useBuiltIns: "usage", // or "entry"
+                useBuiltIns: "entry", // or "entry"
                 corejs: 3,
             }]
         ],
@@ -132,7 +132,7 @@ module.exports = {
     context: path.resolve(__dirname, "src"),
     // Входной файл js(который никто не подключает)
     entry: {
-        main: ["./index.js"]
+        main: ["./index.jsx"]
     },
     output: {
         filename: filename("js"), // Название выходного файла сборки
