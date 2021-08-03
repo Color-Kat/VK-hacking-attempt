@@ -145,7 +145,8 @@ module.exports = {
         alias: {
             "@modules": path.resolve(__dirname, "src/modules"),
             "@components": path.resolve(__dirname, "src/components"),
-            "@": path.resolve(__dirname, "src")
+            "@": path.resolve(__dirname, "src"),
+            "@vars": path.resolve(__dirname, "src/scss/_variables.scss"),
         }
     },
     plugins: plugins(),
@@ -196,6 +197,7 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: cssLoaders("sass-loader")
             },
+
             {
                 test: /\.(png|jpg|jpeg|svg|gif)$/,
                 use: ["file-loader"]
