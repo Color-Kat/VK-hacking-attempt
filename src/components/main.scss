@@ -1,9 +1,8 @@
 .main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: max-content;
     overflow-x: hidden;
-    overflow-y: scroll;
 
     .header {}
 

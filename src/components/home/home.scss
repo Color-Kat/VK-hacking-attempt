@@ -1,0 +1,102 @@
+@import "@vars";
+
+.home {
+    &__fullscreen {
+
+        .home__introducing {
+            position: absolute;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            margin: 20px;
+            padding: 50px 60px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, .4);
+            // width: 500px;
+            box-sizing: content-box;
+
+            @media (max-width: $header_show_menu_icon_break_point) {
+                width: max-content;
+                left: 50%;
+                width: 70vw;
+                margin: 0;
+
+                .home__title {
+                    white-space: normal !important;
+                }
+            }
+
+            .home__title {
+                font-size: 38px;
+                white-space: nowrap;
+                margin: 0 0 20px;
+            }
+
+            .home__sub-title {
+                font-size: 20px;
+                line-height: 28px;
+            }
+        }
+
+        .home__to-bottom {
+            position: absolute;
+            bottom: 0;
+            width: 100vw;
+            height: 80px;
+            background: #000;
+            opacity: .6;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            cursor: pointer;
+
+            .home__details {
+                position: absolute;
+                margin: 15px 0;
+                width: 100%;
+            }
+
+            .bottom-arrow {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                margin: 45px 0 0;
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 100%;
+                    border-left: 6px solid #c2c2c2;
+                    border-bottom: 6px solid #c2c2c2;
+                    animation: bottom-arrow 3s linear infinite;
+                    transform: translate(-50%, 0) rotate(-45deg);
+                }
+
+                &:after {
+                    animation: bottom-arrow 3s linear infinite -1.5s;
+                }
+            }
+
+            @keyframes bottom-arrow {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, -23px) rotate(-45deg);
+                }
+
+                10%,
+                90% {
+                    opacity: 0;
+                }
+
+                50% {
+                    opacity: 1;
+                    transform: translate(-50%, 0) rotate(-45deg);
+                }
+            }
+        }
+    }
+}

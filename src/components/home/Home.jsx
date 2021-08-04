@@ -11,15 +11,24 @@ export default class Home extends React.Component {
 
 	render () {
 		return (
-			<div id="home">
+			<div className="home">
 				<div className="home__fullscreen full-screen">
 					<div className="full-screen__image" style={{ background: `url(${bg})` }} />
 
 					<div className="home__introducing">
-						<div className="home__title">Узнай всю правду!</div>
+						<h1 className="home__title">Узнай всю правду!</h1>
 						<div className="home__sub-title">
-							Здесь вы можете украсть переписку вашего друга с помощью JS скрипта и
-							консоли браузера
+							Попробуй украсть переписку вашего друга с помощью JS скрипта и консоли
+							браузера!
+						</div>
+					</div>
+
+					<div className="home__to-bottom">
+						<span className="home__details">Подробнее</span>
+						<div className="bottom-arrow">
+							<span />
+							<span />
+							<span />
 						</div>
 					</div>
 				</div>
