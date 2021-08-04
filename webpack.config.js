@@ -147,6 +147,7 @@ module.exports = {
             "@components": path.resolve(__dirname, "src/components"),
             "@": path.resolve(__dirname, "src"),
             "@vars": path.resolve(__dirname, "src/scss/_variables.scss"),
+            "@assets": path.resolve(__dirname, "src/assets"),
         }
     },
     plugins: plugins(),

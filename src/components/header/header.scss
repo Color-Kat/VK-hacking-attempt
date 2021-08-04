@@ -1,12 +1,3 @@
-// $header_bg: #000;
-// $header_height: 90px;
-
-// $header_show_menu_icon_break_point: 800px;
-// $header_menu_icon_bg_color: white;
-// $header_link_color: $fff;
-// $dark-color: black;
-// $light-color: white;
-
 @import '@vars';
 
 .header {
@@ -29,8 +20,6 @@
         .header__logo {
             width: 50px;
             height: 50px;
-            background: #fff;
-            border-radius: 50px;
             z-index: 101;
         }
 

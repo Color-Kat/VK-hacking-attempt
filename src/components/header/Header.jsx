@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "@assets/logo.png";
 import "./header.scss";
 
 class Header extends React.Component {
@@ -9,35 +10,37 @@ class Header extends React.Component {
 
 	render () {
 		return (
-			<header class="header">
-				<div class="header__container container">
+			<header className="header">
+				<div className="header__container container">
 					{/* <!-- ========= LOGO ======== --> */}
-					<a href="#" class="header__logo" />
+					<Link to="/" className="header__logo">
+						<img src={logo} alt="Vk-hacker" />
+					</Link>
 					{/* <!-- ========= LOGO ======== --> */}
 
 					{/* <!-- ========= MENU ======== --> */}
-					<div class="header__menu menu">
+					<div className="header__menu menu">
 						{/* <!-- --- burger-menu icon --- --> */}
-						<div class="menu__icon">
+						<div className="menu__icon">
 							<span />
 						</div>
 						{/* <!-- --- burger-menu icon --- --> */}
 
-						<nav class="menu__body">
-							<ul class="menu__list">
+						<nav className="menu__body">
+							<ul className="menu__list">
 								{/* <!-- simple nav items --> */}
 								<li>
-									<a href="#" data-goto=".page__section_1" class="menu__link">
-										Блок 1
-									</a>
+									<Link to="/" className="menu__link">
+										Главная
+									</Link>
 								</li>
 								<li>
-									<a href="#" data-goto=".page__section_2" class="menu__link">
+									<a href="#" data-goto=".page__section_2" className="menu__link">
 										Block two
 									</a>
 								</li>
 								<li>
-									<a href="#" data-goto=".page__section_3" class="menu__link">
+									<a href="#" data-goto=".page__section_3" className="menu__link">
 										Block number three
 									</a>
 								</li>
@@ -46,26 +49,26 @@ class Header extends React.Component {
 								{/* <!-- drop-down menu items --> */}
 								<li>
 									{/* <!-- title --> */}
-									<a href="#" class="menu__link">
+									<a href="#" className="menu__link">
 										Что такое apple
 									</a>
 									{/* <!-- arrow --> */}
-									<span class="menu__arrow" />
+									<span className="menu__arrow" />
 
 									{/* <!-- drop-down content --> */}
-									<ul class="menu__sub-list">
+									<ul className="menu__sub-list">
 										<li>
-											<a href="#" class="menu__sub-link">
+											<a href="#" className="menu__sub-link">
 												Про яблоки
 											</a>
 										</li>
 										<li>
-											<a href="#" class="menu__sub-link">
+											<a href="#" className="menu__sub-link">
 												Про телефоны
 											</a>
 										</li>
 										<li>
-											<a href="#" class="menu__sub-link">
+											<a href="#" className="menu__sub-link">
 												Про аппледисменты
 											</a>
 										</li>

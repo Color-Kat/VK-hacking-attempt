@@ -1,5 +1,7 @@
 //  ================== FONTS ================== //
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 //  ================== FONTS ================== //
 
 //  ================== IMPORTS ================== //
@@ -12,6 +14,7 @@
 // =================== S
 body {
     font-family: Roboto;
+    overflow-x: hidden;
 }
 
 // remove scrolling for all ._scroll-lock
@@ -19,11 +22,63 @@ body {
     overflow: hidden;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-}
-
 .page {
     margin-top: $header_height;
+}
+
+.container {
+    max-width: $container_width;
+    margin: auto;
+    padding: 0 10px;
+
+    @media (max-width: $header_show_menu_icon_break_point) {
+        padding: 0 20px;
+    }
+}
+
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+
+    .full-screen__image {
+        position: absolute !important;
+        // background: url('../../assets/images/main-screen__bgc.jpg') no-repeat center center;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+}
+
+.btn {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    background: #af0e09;
+    padding: 18px 35px;
+    border: none;
+    cursor: pointer !important;
+}
+
+.btn-2 {}
+
+.main__section {
+    position: relative;
+    width: 100%;
+}
+
+input {
+    background: #cecece;
+    border: none;
+}
+
+::placeholder {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    color: #8D8D8D;
 }
