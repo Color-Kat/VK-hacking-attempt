@@ -99,4 +99,101 @@
             }
         }
     }
+
+
+    &__content {
+        padding-top: 60px;
+
+        .home__block-title {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 45px;
+        }
+
+        .home__section:nth-child(odd) {
+            .home__section-wrapper {
+                flex-direction: row-reverse;
+
+                .home__section-illustration {
+                    margin: 0 0 0 20px;
+                }
+
+                .home__section-content {
+                    margin: 0 20px 0 0;
+                }
+            }
+        }
+
+        .home__section {
+            width: 100%;
+            margin-bottom: 100px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .home__section-wrapper {
+                display: flex;
+                justify-content: space-between;
+
+                * {
+                    width: 50%;
+                }
+
+                .home__section-illustration {
+                    position: relative;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    margin: 0 20px 0 0;
+                    min-height: 300px;
+
+                    img {
+                        position: absolute;
+                        width: 100%;
+                        max-height: 100%;
+                        margin: 0;
+                        object-fit: cover;
+                    }
+                }
+
+                .home__section-content {
+                    position: relative;
+                    margin: 0 0 0 20px;
+
+                    * {
+                        width: 100%;
+                    }
+
+                    .home__section-title {
+                        font-size: 32px;
+                        line-height: 32px;
+                        margin-bottom: 25px;
+                        text-align: center;
+                    }
+
+                    .home__section-description {
+                        font-size: 19px;
+                        line-height: 30px;
+                        letter-spacing: .03rem;
+                    }
+
+                    .home__section-link-wrapper {
+                        margin-top: 10px;
+                        width: 100%;
+                        text-align: center;
+
+                        .home__section-link {
+                            color: rgb(0, 255, 0);
+                            font-size: 20px;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
