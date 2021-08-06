@@ -8,7 +8,7 @@ import "@/scss/style.scss";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { rootReducer } from "./redux/rootReducer";
-import App from "./components/App";
+import App from "./views/App";
 
 const store = createStore(rootReducer);
 

@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./main.scss";
 import Header from "@components/header/Header";
 import Home from "./home/Home";
-import Footer from "./footer/Footer";
+import Footer from "../components/footer/Footer";
+import GetScriptPage from "./getScriptPage/GetScriptPage";
 
 class App extends React.Component {
 	constructor () {
@@ -22,6 +23,10 @@ class App extends React.Component {
 						<Switch>
 							<Route exact path="/">
 								<Home />
+							</Route>
+
+							<Route path="/get-script">
+								<GetScriptPage />
 							</Route>
 						</Switch>
 					</div>

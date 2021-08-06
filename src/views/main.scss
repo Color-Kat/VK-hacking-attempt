@@ -1,13 +1,14 @@
 .main {
     display: flex;
     flex-direction: column;
-    height: max-content;
+    min-height: 100vh;
     overflow-x: hidden;
 
     .header {}
 
     .page {
-        flex: 1 0 auto;
+        padding-top: 70px;
+        // flex: 1 1 auto;
     }
 
     .footer {

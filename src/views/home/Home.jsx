@@ -16,13 +16,12 @@ export default class Home extends React.Component {
 	// scroll page to second block after fullscreen block
 	scrollToBottom = () => {
 		const y = this.second_screen_ref.getBoundingClientRect().top + window.pageYOffset - 70;
-		console.log(this.second_screen_ref.getBoundingClientRect().top);
 		window.scrollTo({ top: y, behavior: "smooth" });
 	};
 
 	render () {
 		return (
-			<div className="home">
+			<div className="home" id="home">
 				<div className="home__fullscreen full-screen">
 					<div className="full-screen__image" style={{ background: `url(${bg})` }} />
 
@@ -75,7 +74,7 @@ export default class Home extends React.Component {
 								<div className="home__section-description">
 									В разделе "получить скрипт" или по ссылке ниже скопируйте код.
 									<div className="home__section-link-wrapper">
-										<Link to="/get_script" className="home__section-link">
+										<Link to="/get-script" className="home__section-link">
 											Получить скрипт
 										</Link>
 									</div>
@@ -130,7 +129,7 @@ export default class Home extends React.Component {
 									Скрипт отправит полученные данные на сервер и вы сможете их
 									посмотреть.
 									<div className="home__section-link-wrapper">
-										<Link to="/get_script" className="home__section-link">
+										<Link to="/get-script" className="home__section-link">
 											Поиск диалогов
 										</Link>
 									</div>

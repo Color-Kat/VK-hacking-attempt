@@ -30,7 +30,7 @@ export default class Home extends React.Component {
 						<div className="footer__collumn">
 							<h6 className="footer__collumn_title">ССЫЛКИ</h6>
 							<Link to="/">Главная</Link>
-							<Link to="/get_script">Получить скрипт</Link>
+							<Link to="/get-script">Получить скрипт</Link>
 							<Link to="/dialogs">Диалоги</Link>
 							{/* <Link to="#"></Link> */}
 						</div>

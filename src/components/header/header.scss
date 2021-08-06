@@ -156,7 +156,10 @@
                         font-size: 18px;
                         color: $header_link_color;
 
-                        &:hover {}
+                        &:hover {
+                            text-decoration: underline;
+                            color: rgb(0, 255, 0);
+                        }
 
                         &:active {}
 

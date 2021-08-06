@@ -35,27 +35,24 @@ class Header extends React.Component {
 									</Link>
 								</li>
 								<li>
-									<a href="#" data-goto=".page__section_2" className="menu__link">
-										Block two
-									</a>
+									<Link to="/get-script" className="menu__link">
+										Получить скрипт
+									</Link>
 								</li>
 								<li>
-									<a href="#" data-goto=".page__section_3" className="menu__link">
-										Block number three
-									</a>
+									<Link to="/dialogs" className="menu__link">
+										Диалоги
+									</Link>
 								</li>
 								{/* <!-- simple menu items --> */}
 
 								{/* <!-- drop-down menu items --> */}
-								<li>
-									{/* <!-- title --> */}
+								{/* <li>
 									<a href="#" className="menu__link">
 										Что такое apple
 									</a>
-									{/* <!-- arrow --> */}
 									<span className="menu__arrow" />
 
-									{/* <!-- drop-down content --> */}
 									<ul className="menu__sub-list">
 										<li>
 											<a href="#" className="menu__sub-link">
@@ -73,7 +70,7 @@ class Header extends React.Component {
 											</a>
 										</li>
 									</ul>
-								</li>
+								</li> */}
 								{/* <!-- drop-down menu items --> */}
 							</ul>
 						</nav>
