@@ -1,3 +1,59 @@
+.script {
+    padding: 70px 0;
+    text-align: center;
+
+    .script__title {
+        font-size: 38px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .script__btn {
+        margin: 10px 0 40px;
+    }
+
+    .script__code {
+        background: #282C34;
+        padding: 20px 35px;
+        max-height: 400px;
+        overflow-y: auto;
+        border-radius: 15px;
+        box-shadow: inset 15px 15px 60px rgba(0, 0, 0, 0.5), inset -15px -15px 60px rgba(0, 0, 0, 0.5);
+        border: 5px solid rgb(92, 92, 92);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.script__popup-content {
+    background: #282C34;
+}
+
+// <div id="script" className="script container">
+// <h1 className="script__title">Получить скрипт бесплатно</h1>
+// <div className="script__code">
+//     <Editor
+//         value={this.state.code}
+//         onValueChange={code => this.setState({ code })}
+//         highlight={code => highlight(code, languages.js)}
+//         padding={10}
+//         style={{
+//             fontFamily: '"Fira code", "Fira Mono", monospace',
+//             fontSize: 16
+//         }}
+//     />
+// </div>
+// </div>
+
+
+// ==========================================
+// ==========================================
+// ==========CODE EDITOR STYLES==============
+// ==========================================
+// ==========================================
+
 pre[class*="language-"],
 code[class*="language-"] {
     color: #d4d4d4;

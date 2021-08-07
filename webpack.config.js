@@ -222,6 +222,7 @@ module.exports = {
     optimization: optimization(),
     devServer: {
         port: 8080,
-        hot: isDev
+        hot: isDev,
+        historyApiFallback: true
     }
 };

@@ -6,6 +6,9 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-markup";
 
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+
 import "./getScriptPage.scss";
 
 export default class GetScriptPage extends React.Component {
@@ -22,15 +25,27 @@ export default class GetScriptPage extends React.Component {
 		return (
 			<div id="script" className="script container">
 				<h1 className="script__title">Получить скрипт бесплатно</h1>
+				<Popup
+					trigger={open => <button className="btn script__btn">Копировать код</button>}
+					position="right center"
+					className="script__popup"
+					closeOnDocumentClick
+					onOpen={() => {
+						console.log(123);
+						navigator.clipboard.writeText(this.state.code);
+					}}
+				>
+					<span> Код скопирован успешно </span>
+				</Popup>;
 				<div className="script__code">
 					<Editor
 						value={this.state.code}
-						onValueChange={code => this.setState({ code })}
+						onValueChange={code => null}
 						highlight={code => highlight(code, languages.js)}
 						padding={10}
 						style={{
 							fontFamily: '"Fira code", "Fira Mono", monospace',
-							fontSize: 12
+							fontSize: 18
 						}}
 					/>
 				</div>
