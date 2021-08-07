@@ -36,7 +36,7 @@ export default class GetScriptPage extends React.Component {
 					}}
 				>
 					<span> Код скопирован успешно </span>
-				</Popup>;
+				</Popup>
 				<div className="script__code">
 					<Editor
 						value={this.state.code}
