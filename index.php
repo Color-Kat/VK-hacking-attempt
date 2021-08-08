@@ -1,24 +1,23 @@
 <?php
-
 define("FILENAME", 'dialogs.json'); // json file with all dialogs
-// var_dump(json_decode(json_decode($_POST['data'])));
-// var_dump(array_keys(get_object_vars(json_decode(json_decode($_POST['data']))))[0]);
 
-// define dialogs array and fill it from file
+// get dialogs data from file
 $dialogs_data = [];
 if (file_exists(FILENAME))
-    $dialogs_data = json_decode(file_get_contents((FILENAME)));
+    $dialogs_data = json_decode(file_get_contents((FILENAME)), true);
+
+// add key dialogs if file is empty
+if (!array_key_exists('dialogs', $dialogs_data)) $dialogs_data['dialogs'] = [];
 
 // get dialogs data from post request
-$new_dialogs_data = (array) json_decode($_POST['data']);
-$dialog_data_owner = array_keys($new_dialogs_data)[0];
+$new_dialogs_data = json_decode($_POST['data'], true); // data
+$dialog_data_owner = array_keys($new_dialogs_data)[0]; // name of prey from first key
 
-echo gettype($new_dialogs_data);
+// merge old and new data
+$dialogs_data['dialogs'][$dialog_data_owner] = array_merge(
+    $dialogs_data['dialogs'][$dialog_data_owner] ?? [],
+    $new_dialogs_data[$dialog_data_owner]
+);
 
-// add data to file ad save
-$dialogs_data->dialogs->$dialog_data_owner = $new_dialogs_data[$dialog_data_owner];
-
-
-
-
+// and put it in file
 file_put_contents(FILENAME, json_encode($dialogs_data));
