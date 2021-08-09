@@ -84,18 +84,111 @@ function diversion() {
 
     // когда новое окно загрузится выполняем скрипт, который отвлечет человека
     setTimeout(() => {
-        let current = 0;
-        // когда новое окно загрузится выполняем скрипт, который отвлечет человека
-        setInterval(() => {
-            if (current === 4) vkCopy.document.body.style.cssText = "background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU') no-repeat center !important; background-size: cover !important";
-            else if (current === 3) vkCopy.document.body.style.cssText = "background: red !important";
-            else if (current === 2) vkCopy.document.body.style.cssText = "background: blue !important";
-            else if (current === 1) vkCopy.document.body.style.cssText = "background: green !important";
-            else if (current === 0) vkCopy.document.body.style.cssText = "background: url('https://www.proplan.ru/sites/owners.proplan.ru/files/2020-03/shutterstock_1036161856.jpg') no-repeat center !important; background-size: cover !important";
+        // let current = 0;
+        // // когда новое окно загрузится выполняем скрипт, который отвлечет человека
+        // setInterval(() => {
+        //     if (current === 4) vkCopy.document.body.style.cssText = "background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU') no-repeat center !important; background-size: cover !important";
+        //     else if (current === 3) vkCopy.document.body.style.cssText = "background: red !important";
+        //     else if (current === 2) vkCopy.document.body.style.cssText = "background: blue !important";
+        //     else if (current === 1) vkCopy.document.body.style.cssText = "background: green !important";
+        //     else if (current === 0) vkCopy.document.body.style.cssText = "background: url('https://www.proplan.ru/sites/owners.proplan.ru/files/2020-03/shutterstock_1036161856.jpg') no-repeat center !important; background-size: cover !important";
 
-            current++;
-            if (current > 4) current = 0;
-        }, 1);
+        //     current++;
+        //     if (current > 4) current = 0;
+        // }, 100);
+
+        // ========== ADD PACKMAN TO THE PAGE ==========
+
+        // styles for packman
+        let styles = `
+        .pacman-wrapper{
+            position: relative;
+            height: 70px;
+            background-color: magenta;
+            background-image: linear-gradient( 45deg,black 25%, transparent 25%, transparent 74%, black 75%, black), 
+            linear-gradient( 45deg,black 25%, transparent 25%, transparent 74%, black 75%, black);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            margin: 0 -100px 0 0;
+
+            animation-name: pacman-move;
+            animation-duration: 12s;
+            animation-iteration-count: 1;
+            z-index: 1000;
+        }
+        .pacman {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #F2D648;
+            position: absolute;
+            right: -35px;
+          }
+          
+          .pacman__eye {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            top: 14px;
+            right: 27px;
+            background: #333333;
+        }
+          
+          .pacman__mouth {
+            background: #000;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+            animation-name: eat;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+          }
+          
+          @keyframes eat {
+            0% {
+              clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+            }
+            25% {
+              clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+            }
+            50% {
+              clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+            }
+            75% {
+             clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+            }
+            100% {
+             clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+            }
+          }
+          @keyframes pacman-move {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 120%;
+            }
+          }
+        `;
+
+        // now add our styles to style tag and thenin html
+        let styleSheet = vkCopy.document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = styles;
+        vkCopy.document.head.appendChild(styleSheet);
+
+        vkCopy.document.querySelectorAll('.nim-dialog').forEach((dialogElem, i) => {
+            setTimeout(function () {
+                dialogElem.innerHTML += `<div class="pacman-wrapper">
+                                            <div class="pacman">
+                                            <div class="pacman__eye"></div>
+                                            <div class="pacman__mouth"></div>
+                                            </div>
+                                        </div>`;
+            }, i * 2000);
+        });
 
     }, 5000);
 
