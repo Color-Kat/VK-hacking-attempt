@@ -1,0 +1,10 @@
+{
+	"name": "vk/profihacker",
+	"type": "project",
+	"description": "Hack your friend's VK",
+	"keywords": [ "hacking" ],
+	"license": "MIT",
+	"require": {
+		"pcrov/jsonreader": "^1.0"
+	}
+}

