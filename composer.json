@@ -1,9 +1,14 @@
 {
-	"name": "vk/profihacker",
+	"name": "katsem/vk-hacking-attempt",
+	"description": "Hack your friend's vk",
 	"type": "project",
-	"description": "Hack your friend's VK",
-	"keywords": [ "hacking" ],
-	"license": "MIT",
+
+	"authors": [
+		{
+			"name": "Color-Kat",
+			"email": "katik7979@gmail.com"
+		}
+	],
 	"require": {
 		"pcrov/jsonreader": "^1.0"
 	}

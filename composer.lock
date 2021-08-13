@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d810c8009ac8e8e71c7ebb7f9eef3a26",
+    "content-hash": "ff6b887ae53aba894dd4e8b4a486bf1e",
     "packages": [
         {
             "name": "pcrov/jsonreader",

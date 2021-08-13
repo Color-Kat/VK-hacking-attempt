@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '779ef363b72db93e2a5cf8e7f6d934be2c6ba315',
-    'name' => 'vk/profihacker',
+    'reference' => '0c2e155728c391c008973d7cf39ed50c6216f5d1',
+    'name' => 'katsem/vk-hacking-attempt',
   ),
   'versions' => 
   array (
+    'katsem/vk-hacking-attempt' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0c2e155728c391c008973d7cf39ed50c6216f5d1',
+    ),
     'pcrov/jsonreader' => 
     array (
       'pretty_version' => '1.0.0',
@@ -37,15 +46,6 @@
       array (
       ),
       'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
-    ),
-    'vk/profihacker' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '779ef363b72db93e2a5cf8e7f6d934be2c6ba315',
     ),
   ),
 );
