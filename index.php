@@ -12,24 +12,64 @@ $action = $_GET['action'];
 $reader = new JsonReader();
 $reader->open("dialogs.json");
 $reader->read('dialogs'); // go to dialogs
-$reader->read(); // Step to the first object.
+$reader->read(); // go to first object of dialogs
 
+// initialize responce
 $response;
 
 switch ($action) {
-    case 'get_people_names':
-        $response = [];
-        $depth = $reader->depth(); // Check in a moment to break when the array is done.
+        // get names of all preys
+    case 'get_preys_names':
+        $response = []; // response is array
+        $depth = $reader->depth(); // check length
 
         do {
-            $response[] = $reader->name();
-        } while ($reader->next()); // Read each sibling.
+            // get id and name of prey from dialogs.json
+            $preyId = $reader->name();
+            $preyName = $reader->value()['name'];
 
-        # code...
+            // save it [vk_id => name]
+            $response[$preyId] = $preyName;
+        } while (
+            $reader->next() && // go to next sibling
+            $reader->depth() >= $depth // end if it is end ;)
+        ); // Read each sibling
+
+        break;
+
+        // get dialogs of prey by name
+    case 'dialogs':
+        // get id of prey and current page from GET
+        $preyId = $_GET['id'];
+        $page = $_GET['page'] ?? 0;
+
+        // no prey's id, stop
+        if (!$preyId) {
+            $response = false;
+            break;
+        }
+
+        // init response
+        $response = [$preyId => []];
+
+        echo $reader->name() . '<br>';
+        // $reader->read($preyId);
+        $depth = $reader->depth(); // check length
+
+        do {
+            // echo $reader->name() . '<br>';
+            // $reader->read();
+            // echo $reader->name() . '<br>';
+            $response[$preyId][] = $reader->value();
+        } while (
+            $reader->next($preyId) && // go to next element of our prey
+            $reader->depth() >= $depth // end of dialogs
+        );
+
         break;
 
     default:
-        # code...
+        $response = false;
         break;
 }
 
@@ -38,7 +78,10 @@ switch ($action) {
 // // $depth = $reader->depth(); // Check in a moment to break when the array is done.
 // $reader->read(); // Step to the first object.
 
+echo '<pre>';
 var_dump($response);
+echo '</pre>';
+
 
 
 $reader->close();

