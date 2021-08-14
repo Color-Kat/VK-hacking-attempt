@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime";
 import React from "react";
 import { render } from "react-dom";
 
@@ -5,12 +6,16 @@ import "@/scss/_variables.scss";
 import "@/scss/nullstyle.scss";
 import "@/scss/style.scss";
 
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { rootReducer } from "./redux/rootReducer";
+
 import App from "./views/App";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+
+window.apiPath = "localhost:8080";
 
 const app = (
 	<Provider store={store}>

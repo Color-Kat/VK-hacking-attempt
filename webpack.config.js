@@ -67,12 +67,15 @@ const babelOptions = preset => {
     const opts = {
         presets: [
             ["@babel/preset-env", {
-                useBuiltIns: "entry", // or "entry"
+                useBuiltIns: "entry", // "usage" or "entry"
                 corejs: 3,
             }]
         ],
         plugins: [
-            '@babel/plugin-proposal-class-properties'
+            '@babel/plugin-proposal-class-properties',
+            // ["transform-runtime", {
+            //     "regenerator": true
+            // }]
         ]
     }
 
@@ -119,9 +122,9 @@ const plugins = () => {
         })
     ];
 
-    if (!isDev) {
-        base.push(new BundleAnalyzerPlugin());
-    }
+    // if (!isDev) {
+    //     base.push(new BundleAnalyzerPlugin());
+    // }
 
     return base;
 }
@@ -157,14 +160,14 @@ module.exports = {
                 exclude: /node_modules/,
                 use: jsLoaders()
             },
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                loader: {
-                    loader: "babel-loader",
-                    options: babelOptions('@babel/preset-typescript')
-                }
-            },
+            // {
+            //     test: /\.ts$/,
+            //     exclude: /node_modules/,
+            //     loader: {
+            //         loader: "babel-loader",
+            //         options: babelOptions('@babel/preset-typescript')
+            //     }
+            // },
             {
                 test: /\.jsx$/,
                 exclude: /node_modules/,
@@ -173,23 +176,23 @@ module.exports = {
                     options: babelOptions('@babel/preset-react')
                 }
             },
-            {
-                test: /\.tsx$/,
-                exclude: /node_modules/,
-                loader: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/preset-typescript',
-                            '@babel/preset-react'
-                        ],
-                        plugins: [
-                            '@babel/plugin-proposal-class-properties'
-                        ]
-                    }
-                }
-            },
+            // {
+            //     test: /\.tsx$/,
+            //     exclude: /node_modules/,
+            //     loader: {
+            //         loader: "babel-loader",
+            //         options: {
+            //             presets: [
+            //                 '@babel/preset-env',
+            //                 '@babel/preset-typescript',
+            //                 '@babel/preset-react'
+            //             ],
+            //             plugins: [
+            //                 '@babel/plugin-proposal-class-properties'
+            //             ]
+            //         }
+            //     }
+            // },
             {
                 test: /\.css$/,
                 use: cssLoaders()

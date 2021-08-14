@@ -1,0 +1,2 @@
+export const IS_LOADING = 'APP/IS_LOADING';
+export const FETCH_SCRIPT = 'SCRIPT/FETCH_SCRIPT';

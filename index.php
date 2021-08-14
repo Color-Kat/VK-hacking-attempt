@@ -6,7 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 use pcrov\JsonReader\JsonReader;
 
 // what we do
-$action = $_GET['action'];
+$action = $_GET['action'] || '';
 
 // create json reader and open our dialogs.json
 $reader = new JsonReader();
@@ -17,6 +17,12 @@ $reader->read('dialogs'); // go to dialogs
 $response;
 
 switch ($action) {
+        // get from file hacker-script
+    case 'script':
+        $response = file_exists('hacker.min.js') ? file_get_contents('hacker.min.js') : false;
+
+        break;
+
         // get names of all preys
     case 'get_preys_names':
         $response = []; // response is array
@@ -66,12 +72,14 @@ switch ($action) {
         break;
 
     default:
-        $response = false;
+        // $response = false;
         break;
 }
 
 echo '<pre>';
 var_dump($response);
 echo '</pre>';
+
+json_encode($response);
 
 $reader->close();

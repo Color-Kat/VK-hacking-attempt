@@ -4,7 +4,11 @@ import {
 import {
     dialogsReducer
 } from "./dialogsReudcer";
+import {
+    preysReducer
+} from "./preysReduces";
 
 export const rootReducer = combineReducers({
-    dialogs: dialogsReducer
+    dialogs: dialogsReducer,
+    preys: preysReducer
 })
