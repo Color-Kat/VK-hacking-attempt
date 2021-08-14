@@ -12,7 +12,6 @@ $action = $_GET['action'];
 $reader = new JsonReader();
 $reader->open("dialogs.json");
 $reader->read('dialogs'); // go to dialogs
-$reader->read(); // go to first object of dialogs
 
 // initialize responce
 $response;
@@ -21,6 +20,7 @@ switch ($action) {
         // get names of all preys
     case 'get_preys_names':
         $response = []; // response is array
+        $reader->read(); // go to first object of dialogs
         $depth = $reader->depth(); // check length
 
         do {
@@ -52,14 +52,11 @@ switch ($action) {
         // init response
         $response = [$preyId => []];
 
-        echo $reader->name() . '<br>';
-        // $reader->read($preyId);
+        $reader->read($preyId); // go to prey's data
         $depth = $reader->depth(); // check length
 
         do {
-            // echo $reader->name() . '<br>';
-            // $reader->read();
-            // echo $reader->name() . '<br>';
+            // add to response [ vk_id => [[name => dialogs], ...] ]
             $response[$preyId][] = $reader->value();
         } while (
             $reader->next($preyId) && // go to next element of our prey
@@ -73,15 +70,8 @@ switch ($action) {
         break;
 }
 
-
-// $reader->read('dialogs'); // go to dialogs
-// // $depth = $reader->depth(); // Check in a moment to break when the array is done.
-// $reader->read(); // Step to the first object.
-
 echo '<pre>';
 var_dump($response);
 echo '</pre>';
-
-
 
 $reader->close();
