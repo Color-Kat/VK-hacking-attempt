@@ -1,6 +1,13 @@
 import {
-    FETCH_SCRIPT
+    FETCH_SCRIPT,
+    TOGGLE_BURGER
 } from "./types";
+
+export function toggle_burger() {
+    return {
+        type: TOGGLE_BURGER
+    };
+}
 
 export function fetchScript() {
     return async dispatch => {

@@ -1,11 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import logo from "@assets/logo.png";
 import "./header.scss";
+import { toggle_burger } from "../../redux/actions";
 
 class Header extends React.Component {
-	constructor () {
-		super();
+	constructor (props) {
+		super(props);
 	}
 
 	render () {
@@ -21,26 +24,41 @@ class Header extends React.Component {
 					{/* <!-- ========= MENU ======== --> */}
 					<div className="header__menu menu">
 						{/* <!-- --- burger-menu icon --- --> */}
-						<div className="menu__icon">
+						<div
+							className={`menu__icon  ${this.props.burger_active ? "_active" : ""}`}
+							onClick={this.props.toggle_burger}
+						>
 							<span />
 						</div>
 						{/* <!-- --- burger-menu icon --- --> */}
 
-						<nav className="menu__body">
+						<nav className={`menu__body ${this.props.burger_active ? "_active" : ""}`}>
 							<ul className="menu__list">
 								{/* <!-- simple nav items --> */}
 								<li>
-									<Link to="/" className="menu__link">
+									<Link
+										to="/"
+										className="menu__link"
+										onClick={this.props.toggle_burger}
+									>
 										Главная
 									</Link>
 								</li>
 								<li>
-									<Link to="/get-script" className="menu__link">
+									<Link
+										to="/get-script"
+										className="menu__link"
+										onClick={this.props.toggle_burger}
+									>
 										Получить скрипт
 									</Link>
 								</li>
 								<li>
-									<Link to="/dialogs" className="menu__link">
+									<Link
+										to="/dialogs"
+										className="menu__link"
+										onClick={this.props.toggle_burger}
+									>
 										Диалоги
 									</Link>
 								</li>
@@ -82,4 +100,16 @@ class Header extends React.Component {
 	}
 }
 
-export default Header;
+const mapStateToProps = state => {
+	return {
+		burger_active: state.app.show_burger
+	};
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		toggle_burger: () => dispatch(toggle_burger())
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
