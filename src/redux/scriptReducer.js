@@ -3,20 +3,18 @@ import {
 } from "./types";
 
 let initialState = {
-    script: ''
+    code: ''
 }
 
-export const scriptReducer = (state, action) => {
+export const scriptReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case FETCH_SCRIPT:
             return {
-                ...state, script: action.payload
+                ...state, code: action.payload
             };
 
         default:
             return state;
     }
-
-
 }

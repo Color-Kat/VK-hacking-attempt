@@ -22,7 +22,7 @@ const {
 } = require("clean-webpack-plugin");
 
 // Определяет, в каком моде запущено приложение с помощью process
-const isDev = process.env.NODE_ENV === "development";
+const isDev = process.env.NODE_ENV || "development" === "development";
 
 // В зависимости от режима сборки (прод или дев) возвращает различные названия файлов
 const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
@@ -94,7 +94,7 @@ const jsLoaders = () => {
     }]
 
     if (isDev) {
-        loaders.push('eslint-loader')
+        // loaders.push('eslint-loader')
     }
 
     return loaders

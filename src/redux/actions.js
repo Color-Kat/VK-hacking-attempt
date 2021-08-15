@@ -9,7 +9,7 @@ export function fetchScript() {
 
         dispatch({
             type: FETCH_SCRIPT,
-            payload: response
+            payload: script
         });
     }
 }

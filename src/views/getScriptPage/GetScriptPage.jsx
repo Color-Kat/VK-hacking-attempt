@@ -38,15 +38,15 @@ class GetScriptPage extends React.Component {
 					className="script__popup"
 					closeOnDocumentClick
 					onOpen={() => {
-						console.log(123);
-						navigator.clipboard.writeText(this.state.code);
+						// copy code
+						navigator.clipboard.writeText(this.props.code);
 					}}
 				>
 					<span> Код скопирован успешно </span>
 				</Popup>
 				<div className="script__code">
 					<Editor
-						value={this.state.code}
+						value={this.props.code}
 						onValueChange={code => null}
 						highlight={code => highlight(code, languages.js)}
 						padding={10}
