@@ -6,6 +6,7 @@ import Header from "@components/header/Header";
 import Home from "./home/Home";
 import Footer from "../components/footer/Footer";
 import GetScriptPage from "./getScriptPage/GetScriptPage";
+import Loader from "../components/loader/Loader";
 
 class App extends React.Component {
 	constructor () {
@@ -17,6 +18,8 @@ class App extends React.Component {
 			<Router>
 				<main className="main">
 					<Header />
+
+					<Loader />
 
 					{/* Page content */}
 					<div className="page">

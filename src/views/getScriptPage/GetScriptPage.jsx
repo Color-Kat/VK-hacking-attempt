@@ -16,7 +16,9 @@ import { fetchScript } from "../../redux/actions";
 class GetScriptPage extends React.Component {
 	constructor (props) {
 		super(props);
+	}
 
+	componentDidMount () {
 		this.props.loadScript();
 	}
 

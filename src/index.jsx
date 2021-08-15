@@ -24,3 +24,12 @@ const app = (
 );
 
 render(app, document.querySelector("#app"));
+
+// add scroll-loack class for body if burger-menu is opened
+store.subscribe(() => {
+	if (store.getState().app.show_burger) {
+		document.body.classList.add("_scroll-lock");
+	} else {
+		document.body.classList.remove("_scroll-lock");
+	}
+});

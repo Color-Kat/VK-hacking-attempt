@@ -12,11 +12,13 @@ import {
     scriptReducer
 } from "./scriptReducer";
 import {
-    TOGGLE_BURGER
+    TOGGLE_BURGER,
+    TOGGLE_LOADER
 } from "./types";
 
 const initialState = {
-    show_burger: false
+    show_burger: false,
+    is_loading: false
 };
 
 export const rootReducer = combineReducers({
@@ -26,6 +28,12 @@ export const rootReducer = combineReducers({
 
                 return {
                     ...state, show_burger: !state.show_burger
+                };
+
+            case TOGGLE_LOADER:
+
+                return {
+                    ...state, is_loading: !state.is_loading
                 };
 
             default:

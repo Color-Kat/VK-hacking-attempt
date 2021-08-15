@@ -1,3 +1,3 @@
 export const TOGGLE_BURGER = 'APP/TOGGLE_BURGER';
-export const IS_LOADING = 'APP/IS_LOADING';
+export const TOGGLE_LOADER = 'APP/TOGGLE_LOADER';
 export const FETCH_SCRIPT = 'SCRIPT/FETCH_SCRIPT';
