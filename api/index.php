@@ -1,9 +1,11 @@
 <?php
 
 // autoload for composer libraries
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use pcrov\JsonReader\JsonReader;
+
+cors();
 
 // what we do
 $action = $_GET['action'] || '';
@@ -76,10 +78,28 @@ switch ($action) {
         break;
 }
 
-echo '<pre>';
-var_dump($response);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($response);
+// echo '</pre>';
 
-json_encode($response);
+echo json_encode($response);
 
 $reader->close();
+
+function cors()
+{
+    if (isset($_SERVER["HTTP_ORIGIN"])) {
+        header("Access-Control-Allow-Origin: {$_SERVER["HTTP_ORIGIN"]}");
+        header("Access-Control-Allow-Credentials: true");
+        header("Access-Control-Max-Age: 86400");
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") {
+
+        if (isset($_SERVER["HTTP_ACCESS_CONTROL_REQUEST_METHOD"]))
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+        if (isset($_SERVER["HTTP_ACCESS_CONTROL_REQUEST_HEADERS"]))
+            header("Access-Control-Allow-Headers: {$_SERVER["HTTP_ACCESS_CONTROL_REQUEST_HEADERS"]}");
+    }
+}

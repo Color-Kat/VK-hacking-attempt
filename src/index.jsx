@@ -15,7 +15,7 @@ import App from "./views/App";
 
 const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
 
-window.apiPath = "localhost:8080";
+window.apiPath = "https://vk-hacking-attempt/api/";
 
 const app = (
 	<Provider store={store}>

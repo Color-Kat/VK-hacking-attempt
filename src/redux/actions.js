@@ -4,8 +4,8 @@ import {
 
 export function fetchScript() {
     return async dispatch => {
-        let resoponse = await fetch('');
-        let script = await resoponse.json();
+        let response = await fetch(window.apiPath + 'index.php?action=script');
+        let script = await response.json();
 
         dispatch({
             type: FETCH_SCRIPT,
