@@ -51,6 +51,5 @@ export const rootReducer = combineReducers({
         }
     },
     dialogs: dialogsReducer,
-    preys: preysReducer,
     script: scriptReducer
 })

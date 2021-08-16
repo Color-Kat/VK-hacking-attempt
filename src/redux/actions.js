@@ -33,12 +33,12 @@ export function hide_loader() {
 
 export function fetchScript() {
     return async dispatch => {
-        dispatch(show_loader());
+        dispatch(show_loader()); // show loader
 
         let response = await fetch(window.apiPath + 'index.php?action=script');
         let script = await response.json();
 
-        dispatch(hide_loader());
+        dispatch(hide_loader()); // hide loader
 
         dispatch({
             type: FETCH_SCRIPT,
@@ -49,10 +49,15 @@ export function fetchScript() {
 
 export function fetchPreys() {
     return async dispatch => {
-        let response = await fetch('');
+        dispatch(show_loader()); // show loader
+
+        let response = await fetch(window.apiPath + 'index.php?action=get_preys_names');
         let preys = await response.json();
 
-        console.log(preys);
+        // console.log(preys);
+
+
+        dispatch(hide_loader()); // hide loader
 
         dispatch({
             type: FETCH_PREYS,
