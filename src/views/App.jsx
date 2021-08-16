@@ -7,6 +7,7 @@ import Home from "./home/Home";
 import Footer from "../components/footer/Footer";
 import GetScriptPage from "./getScriptPage/GetScriptPage";
 import Loader from "../components/loader/Loader";
+import Preys from "./dialogs/Preys";
 import Dialogs from "./dialogs/Dialogs";
 
 class App extends React.Component {
@@ -33,7 +34,11 @@ class App extends React.Component {
 								<GetScriptPage />
 							</Route>
 
-							<Route path="/dialogs">
+							<Route exact path="/dialogs">
+								<Preys />
+							</Route>
+
+							<Route path="/dialogs/:id">
 								<Dialogs />
 							</Route>
 						</Switch>

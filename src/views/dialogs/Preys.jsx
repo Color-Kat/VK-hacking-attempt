@@ -1,28 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import "./dialogs.scss";
-import {} from "../../redux/actions";
+import "./preys.scss";
+import { fetchPreys, fetchScript } from "../../redux/actions";
+import PreyItem from "@components/preys/PreyItem";
 
-class Dialogs extends React.Component {
+class Preys extends React.Component {
 	constructor (props) {
 		console.log(props);
 		super(props);
 	}
 
 	componentDidMount () {
-		// this.props.loadPreys();
+		this.props.loadPreys();
 	}
 
 	render () {
 		return (
-			<div id="dialogs" className="dialogs container">
-				<h1 className="dialogs__title title">Диалоги</h1>
-				<h5 className="dialogs__sub-title sub-title">
+			<div id="preys" className="preys container">
+				<h1 className="preys__title title">Диалоги</h1>
+				<h5 className="preys__sub-title sub-title">
 					Выберите человека, чтобы посмотреть его диалоги
 				</h5>
 
-				{/* <ul className="preys-grid">
+				<ul className="preys-grid">
 					{Object.keys(this.props.preys).map(prey => (
 						<li
 							key={prey}
@@ -36,7 +38,7 @@ class Dialogs extends React.Component {
 							/>
 						</li>
 					))}
-				</ul> */}
+				</ul>
 			</div>
 		);
 	}
@@ -48,8 +50,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		// loadPreys: () => dispatch(fetchPreys())
+		loadPreys: () => dispatch(fetchPreys())
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Preys));
