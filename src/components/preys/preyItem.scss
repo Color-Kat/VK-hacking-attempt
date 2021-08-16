@@ -1,0 +1,37 @@
+.prey-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(31, 31, 31);
+    padding: 30px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+
+    span {
+        left: -10%;
+        position: absolute;
+        background: lime;
+        box-shadow: lime -10px 0 20px, lime 3px 0 20px;
+        transition: .85s ease-in-out;
+        height: 100%;
+        width: 3px;
+    }
+
+    &:hover span {
+        left: 110%;
+        box-shadow: lime 10px 0 20px, lime -3px 0 20px;
+    }
+
+    &:hover h2 {
+        color: lime;
+        text-decoration: underline;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+
+    h2 {}
+}

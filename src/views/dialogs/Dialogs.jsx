@@ -17,16 +17,19 @@ class Dialogs extends React.Component {
 	render () {
 		return (
 			<div id="dialogs" className="dialogs container">
-				<h1 className="script__title">Диалоги</h1>
-				<h5 className="script__title">Выберите человека, чтобы посмотреть его диалоги</h5>
+				<h1 className="dialogs__title title">Диалоги</h1>
+				<h5 className="dialogs__sub-title sub-title">
+					Выберите человека, чтобы посмотреть его диалоги
+				</h5>
 
 				<ul className="preys-grid">
 					{Object.keys(this.props.preys).map(prey => (
-						<PreyItem
-							name={this.props.preys[prey].name}
-							avatar={this.props.preys[prey].avatar}
-							key={prey}
-						/>
+						<li key={prey}>
+							<PreyItem
+								name={this.props.preys[prey].name}
+								avatar={this.props.preys[prey].avatar}
+							/>
+						</li>
 					))}
 				</ul>
 			</div>

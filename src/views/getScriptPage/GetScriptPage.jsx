@@ -25,7 +25,7 @@ class GetScriptPage extends React.Component {
 	render () {
 		return (
 			<div id="script" className="script container">
-				<h1 className="script__title">Получить скрипт бесплатно</h1>
+				<h1 className="script__title title">Получить скрипт бесплатно</h1>
 				<Popup
 					trigger={open => <button className="btn script__btn">Копировать код</button>}
 					position="right center"
