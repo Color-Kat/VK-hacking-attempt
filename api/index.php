@@ -8,7 +8,7 @@ use pcrov\JsonReader\JsonReader;
 cors();
 
 // what we do
-$action = $_GET['action'] || '';
+$action = $_GET['action'];
 
 // create json reader and open our dialogs.json
 $reader = new JsonReader();
@@ -35,9 +35,13 @@ switch ($action) {
             // get id and name of prey from dialogs.json
             $preyId = $reader->name();
             $preyName = $reader->value()['name'];
+            $preyAvatar = $reader->value()['avatar'];
 
-            // save it [vk_id => name]
-            $response[$preyId] = $preyName;
+            // save it [vk_id => [name => Vlad, avatar: link]]
+            $response[$preyId] = [
+                'name' => $preyName,
+                'avatar' => $preyAvatar
+            ];
         } while (
             $reader->next() && // go to next sibling
             $reader->depth() >= $depth // end if it is end ;)

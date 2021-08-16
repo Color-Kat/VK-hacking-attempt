@@ -7,6 +7,7 @@ import Home from "./home/Home";
 import Footer from "../components/footer/Footer";
 import GetScriptPage from "./getScriptPage/GetScriptPage";
 import Loader from "../components/loader/Loader";
+import Dialogs from "./dialogs/Dialogs";
 
 class App extends React.Component {
 	constructor () {
@@ -30,6 +31,10 @@ class App extends React.Component {
 
 							<Route path="/get-script">
 								<GetScriptPage />
+							</Route>
+
+							<Route path="/dialogs">
+								<Dialogs />
 							</Route>
 						</Switch>
 					</div>

@@ -1,4 +1,5 @@
 import {
+    FETCH_PREYS,
     FETCH_SCRIPT,
     HIDE_LOADER,
     SHOW_LOADER,
@@ -43,5 +44,19 @@ export function fetchScript() {
             type: FETCH_SCRIPT,
             payload: script
         });
+    }
+}
+
+export function fetchPreys() {
+    return async dispatch => {
+        let response = await fetch('');
+        let preys = await response.json();
+
+        console.log(preys);
+
+        dispatch({
+            type: FETCH_PREYS,
+            payload: preys
+        })
     }
 }

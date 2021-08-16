@@ -1,8 +1,20 @@
+import {
+    FETCH_PREYS
+} from "./types";
+
 const initialState = {
-    dialogs: []
+    preys: [],
+    currentPrey: {}
 }
 
 export const dialogsReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FETCH_PREYS:
+            return {
+                ...state, preys: action.payload
+            }
 
-    return state;
+            default:
+                return state;
+    }
 }
