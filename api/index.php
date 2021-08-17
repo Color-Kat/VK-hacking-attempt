@@ -67,13 +67,13 @@ switch ($action) {
         $reader->read($preyId); // go to prey's data
         $depth = $reader->depth(); // check length
 
-        do {
-            // add to response [ vk_id => [[name => dialogs], ...] ]
-            $response[$preyId][] = $reader->value();
-        } while (
-            $reader->next($preyId) && // go to next element of our prey
-            $reader->depth() >= $depth // end of dialogs
-        );
+        // do {
+        // add to response [ vk_id => [[name => dialogs], ...] ]
+        $response[$preyId] = $reader->value();
+        // } while (
+        //     $reader->next($preyId) && // go to next element of our prey
+        //     $reader->depth() >= $depth // end of dialogs
+        // );
 
         break;
 

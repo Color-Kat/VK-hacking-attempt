@@ -2,16 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./dialogs.scss";
-import {} from "../../redux/actions";
+import { fetchDialogs } from "../../redux/actions";
+import { withRouter } from "react-router-dom";
+import DialogItem from "../../components/dialogs/DialogItem";
 
 class Dialogs extends React.Component {
 	constructor (props) {
-		console.log(props);
 		super(props);
 	}
 
+	preyId = this.props.match.params.id;
+
 	componentDidMount () {
-		// this.props.loadPreys();
+		this.props.loadDialogs(this.preyId);
 	}
 
 	render () {
@@ -22,21 +25,23 @@ class Dialogs extends React.Component {
 					Выберите человека, чтобы посмотреть его диалоги
 				</h5>
 
-				{/* <ul className="preys-grid">
-					{Object.keys(this.props.preys).map(prey => (
-						<li
-							key={prey}
-							onClick={() => {
-								this.props.history.push(`/dialogs/${prey}`);
-							}}
-						>
-							<PreyItem
-								name={this.props.preys[prey].name}
-								avatar={this.props.preys[prey].avatar}
-							/>
-						</li>
-					))}
-				</ul> */}
+				{this.props.dialogs[this.preyId] ? (
+					<ul className="preys-grid">
+						{Object.keys(this.props.dialogs[this.preyId]).map(dialogName => {
+							if (dialogName !== "name" && dialogName !== "avatar") {
+								return (
+									<DialogItem
+										key={dialogName}
+										name={dialogName}
+										messages={this.props.dialogs[this.preyId][dialogName]}
+									/>
+								);
+							}
+						})}
+					</ul>
+				) : (
+					<span>Ничего не найдено</span>
+				)}
 			</div>
 		);
 	}
@@ -48,8 +53,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		// loadPreys: () => dispatch(fetchPreys())
+		loadDialogs: preyId => dispatch(fetchDialogs(preyId))
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Dialogs));

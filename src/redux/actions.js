@@ -1,4 +1,5 @@
 import {
+    FETCH_DIALOGS,
     FETCH_PREYS,
     FETCH_SCRIPT,
     HIDE_LOADER,
@@ -62,6 +63,25 @@ export function fetchPreys() {
         dispatch({
             type: FETCH_PREYS,
             payload: preys
+        })
+    }
+}
+
+export function fetchDialogs(prey_id) {
+    return async dispatch => {
+        dispatch(show_loader()); // show loader
+
+        let response = await fetch(window.apiPath + 'index.php?action=dialogs&id=' + prey_id);
+        let dialogs = await response.json();
+
+        console.log(dialogs);
+
+
+        dispatch(hide_loader()); // hide loader
+
+        dispatch({
+            type: FETCH_DIALOGS,
+            payload: dialogs
         })
     }
 }

@@ -11,3 +11,6 @@ export const FETCH_SCRIPT = 'SCRIPT/FETCH_SCRIPT';
 
 // fetch all preys
 export const FETCH_PREYS = 'DIALOGS/FETCH_PREYS';
+
+// fetch all dialogs of prey
+export const FETCH_DIALOGS = 'DIALOGS/FETCH_DIALOGS';
