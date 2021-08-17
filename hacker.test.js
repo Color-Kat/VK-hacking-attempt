@@ -95,8 +95,11 @@ function getFriendName() {
  */
 function getMessages() {
     let messages = [];
-    document.querySelectorAll('.im-mess--text').forEach(mess =>
-        messages.push(mess.innerHTML)
+    document.querySelectorAll('.im-mess-stack').forEach(mess =>
+        messages.push({
+            name: mess.querySelector('.im-mess-stack--lnk').innerHTML,
+            mess: mess.querySelector('.im-mess--text').outerHTML,
+        })
     );
     return messages;
 }

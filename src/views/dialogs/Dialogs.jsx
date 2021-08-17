@@ -22,25 +22,41 @@ class Dialogs extends React.Component {
 			<div id="dialogs" className="dialogs container">
 				<h1 className="dialogs__title title">Диалоги</h1>
 				<h5 className="dialogs__sub-title sub-title">
-					Выберите человека, чтобы посмотреть его диалоги
+					{this.props.dialogs[this.preyId] ? (
+						this.props.dialogs[this.preyId]["name"]
+					) : (
+						""
+					)}{" "}
+					переписывался с этими людьми. Выберети диалог.
 				</h5>
 
+				{/* check if id exists */}
 				{this.props.dialogs[this.preyId] ? (
-					<ul className="preys-grid">
-						{Object.keys(this.props.dialogs[this.preyId]).map(dialogName => {
-							if (dialogName !== "name" && dialogName !== "avatar") {
-								return (
-									<DialogItem
-										key={dialogName}
-										name={dialogName}
-										messages={this.props.dialogs[this.preyId][dialogName]}
-									/>
-								);
-							}
-						})}
+					<ul className="dialogs__grid">
+						{/* check if dialogs exist  */}
+						{Object.keys(this.props.dialogs[this.preyId]).length > 0 ? (
+							// map all dialogs
+							Object.keys(this.props.dialogs[this.preyId]).map(dialogName => {
+								if (
+									dialogName !== "name" &&
+									dialogName !== "avatar" &&
+									dialogName
+								) {
+									return (
+										<DialogItem
+											key={dialogName}
+											name={dialogName}
+											messages={this.props.dialogs[this.preyId][dialogName]}
+										/>
+									);
+								}
+							})
+						) : (
+							<span className="dialogs__empty">Диалогов нет</span>
+						)}
 					</ul>
 				) : (
-					<span>Ничего не найдено</span>
+					<span className="dialogs__empty">Ничего не найдено</span>
 				)}
 			</div>
 		);

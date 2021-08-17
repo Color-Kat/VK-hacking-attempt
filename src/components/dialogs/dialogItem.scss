@@ -1,0 +1,69 @@
+.dialog-item {
+    padding: 30px 25px;
+    margin: 0 0 15px;
+    border-radius: 10px;
+    background: #1f1f1f;
+
+    &.active .arrow-down {
+        transform: rotate(135deg);
+    }
+
+    .dialog-item__preview {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .dialog-item__name {}
+
+        .arrow-down {
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 4px;
+            transform: rotate(45deg);
+            transition: transform .2s ease-in;
+        }
+    }
+
+
+    &.active .dialog-item__content {
+        display: block;
+        margin-top: 10px;
+        border-top: 1px solid rgb(190, 190, 190);
+        padding-top: 30px;
+        max-height: 500px;
+        overflow-y: auto;
+
+        li {
+            margin: 10px 0;
+
+            a {
+                color: lime;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            .im-replied--text,
+            .im-replied--author {
+                font-size: 17px;
+                margin: 5px 0;
+            }
+        }
+    }
+
+    .dialog-item__content {
+        display: none;
+    }
+}
+
+// <li className="dialog-item">
+// <div className="name">{this.props.name}</div>
+// <span className="arrow-down" />
+
+// <div className="content">
+//     {this.props.messages.map(message => {
+//         // console.log(message);
+//         return <li key={message + Math.random()}>{message}</li>;
+//     })}
+// </div>
+// </li>
