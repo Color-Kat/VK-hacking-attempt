@@ -30,7 +30,6 @@ export default class DialogItem extends React.Component {
 				<div className="dialog-item__content">
 					<ul>
 						{this.props.messages.map(message => {
-							// console.log(message);
 							return (
 								<li
 									key={message.name + Math.random()}

@@ -33,3 +33,7 @@ store.subscribe(() => {
 		document.body.classList.remove("_scroll-lock");
 	}
 });
+
+window.addEventListener("resize", () => {
+	store.dispatch;
+});

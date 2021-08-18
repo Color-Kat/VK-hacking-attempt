@@ -7,6 +7,7 @@ import console from "@assets/images/console.jpg";
 import result from "@assets/images/result.jpg";
 
 import "./home.scss";
+import ScrollAppearance from "../../components/appearance/Appearance";
 
 export default class Home extends React.Component {
 	constructor () {
@@ -45,22 +46,24 @@ export default class Home extends React.Component {
 				<div className="home__content" ref={ref => (this.second_screen_ref = ref)}>
 					<h1 className="home__block-title">VK профи хакер</h1>
 
-					<section className="home__section home__section-main">
-						<div className="home__section-wrapper container">
-							<div className="home__section-illustration">
-								<img src={hacker} alt="script image" />
-							</div>
-							<div className="home__section-content">
-								<h2 className="home__section-title">Как это работает?</h2>
-								<div className="home__section-description">
-									Мы даём вам скрипт, который будет перемещаться по перепискам
-									вашего друга и воровать сообщения ;&#41; Далее скрипт каждые 10
-									секунд отправляет данные на сервер, где любой может просмотреть
-									эти данные.
+					<ScrollAppearance>
+						<section className="home__section home__section-main">
+							<div className="home__section-wrapper container">
+								<div className="home__section-illustration">
+									<img src={hacker} alt="script image" />
+								</div>
+								<div className="home__section-content">
+									<h2 className="home__section-title">Как это работает?</h2>
+									<div className="home__section-description">
+										Мы даём вам скрипт, который будет перемещаться по перепискам
+										вашего друга и воровать сообщения ;&#41; Далее скрипт каждые
+										10 секунд отправляет данные на сервер, где любой может
+										просмотреть эти данные.
+									</div>
 								</div>
 							</div>
-						</div>
-					</section>
+						</section>
+					</ScrollAppearance>
 
 					<h1 className="home__block-title">Инструкия</h1>
 
