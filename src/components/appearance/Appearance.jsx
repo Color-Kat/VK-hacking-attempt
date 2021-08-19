@@ -1,4 +1,5 @@
 import React from "react";
+import reactSimpleCodeEditor from "react-simple-code-editor";
 
 // import "./dialogItem.scss";
 
@@ -7,13 +8,44 @@ export default class ScrollAppearance extends React.Component {
 		super(props);
 
 		this.state = {
-			iaActive: false
+			isActive: false
 		};
 	}
 
-	toggleActiveClass = () => {};
+	element = null;
+
+	toggleActiveClass = () => {
+		let elem = this.element;
+		if (!elem) return;
+
+		let elemHeight = elem.offsetHeight;
+		let elemOffset = offset(elem).top;
+		let animStart = 4;
+
+		let elemPoint = window.innerHeight - elemHeight / animStart;
+
+		if (elemHeight > window.innerHeight)
+			elemPoint = window.innerHeight - window.innerHeight / animStart;
+
+		if (pageYOffset > elemOffset - elemPoint && pageYOffset < elemOffset + elemHeight) {
+			this.setState({ isActive: true });
+		} else {
+			// this.setState({ isActive: false });
+		}
+
+		function offset (elem) {
+			const rect = elem.getBoundingClientRect(),
+				scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+				scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+			return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+		}
+	};
 
 	componentDidMount () {
+		setTimeout(() => {
+			this.toggleActiveClass();
+		}, 300);
 		document.addEventListener("scroll", this.toggleActiveClass);
 	}
 
@@ -21,27 +53,29 @@ export default class ScrollAppearance extends React.Component {
 		document.removeEventListener("scroll", this.toggleActiveClass);
 	}
 
-	addAnimClass = child => {
-		const className = classNames(child.props.className, "anim-slide");
-
-		const props = {
-			className
-		};
-
-		return React.cloneElement(child, props);
-	};
-
 	render () {
 		return (
 			<React.Fragment>
-				{/* iterate all children and add class 'anim-slide' */}
-				{React.Children.map(this.props.children, child =>
-					React.cloneElement(child, {
-						className: `${child.props.className} ${"anim-slide"} ${this.state.isActive
+				{/* iterate all children and add class 'anim-slide' and toggle active class */}
+				{React.Children.map(this.props.children, child => {
+					this.element = React.cloneElement(child, {
+						className: `${child.props.className} ${"anim"} ${this.state.isActive
 							? "_active"
-							: null}`
-					})
-				)}
+							: ""}`,
+						ref: el => {
+							// Keep your own reference
+							// console.log(node ? node.getBoundingClientReact() : null);
+							this.element = el;
+							// // Call the original ref, if any
+							// const { ref } = child;
+							// if (typeof ref === "function") {
+							// 	ref(node);
+							// }
+						}
+					});
+
+					return this.element;
+				})}
 			</React.Fragment>
 		);
 	}

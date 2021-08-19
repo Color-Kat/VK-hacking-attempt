@@ -1,6 +1,8 @@
 @import "@vars";
 
 .home {
+    margin-top: -70px;
+
     &__fullscreen {
 
         .home__introducing {
@@ -13,7 +15,7 @@
             border-radius: 20px;
             background: rgba(0, 0, 0, .4);
             // width: 500px;
-            box-sizing: content-box;
+            // box-sizing: content-box;
 
             @media (max-width: $header_show_menu_icon_break_point) {
                 width: max-content;
@@ -114,6 +116,8 @@
 
         // reverse order
         .home__section:nth-child(odd) {
+            left: -120%;
+
             .home__section-wrapper {
                 flex-direction: row-reverse;
 
@@ -128,6 +132,10 @@
         }
 
         .home__section {
+            left: 120%;
+
+            transition: all .3s ease-in-out;
+
             position: relative;
             width: 100%;
             background: rgba(0, 0, 0, 0.507);
@@ -136,6 +144,10 @@
 
             &:last-child {
                 margin-bottom: 0;
+            }
+
+            &._active {
+                left: 0;
             }
 
             .home__section-wrapper {

