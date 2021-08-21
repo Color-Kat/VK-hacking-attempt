@@ -1,5 +1,6 @@
 // open/close burger
 export const TOGGLE_BURGER = 'APP/TOGGLE_BURGER';
+export const HIDE_BURGER = 'APP/HIDE_BURGER';
 
 // show/hide loader
 export const SHOW_LOADER = 'APP/SHOW_LOADER';

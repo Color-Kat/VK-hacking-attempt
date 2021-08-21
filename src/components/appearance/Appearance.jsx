@@ -1,7 +1,4 @@
 import React from "react";
-import reactSimpleCodeEditor from "react-simple-code-editor";
-
-// import "./dialogItem.scss";
 
 export default class ScrollAppearance extends React.Component {
 	constructor (props) {
@@ -18,15 +15,16 @@ export default class ScrollAppearance extends React.Component {
 		let elem = this.element;
 		if (!elem) return;
 
-		let elemHeight = elem.offsetHeight;
-		let elemOffset = offset(elem).top;
-		let animStart = 4;
+		let elemHeight = elem.offsetHeight; // elem height
+		let elemOffset = offset(elem).top; // elem offset top
+		let animStart = 4; // part of the elem
 
 		let elemPoint = window.innerHeight - elemHeight / animStart;
 
 		if (elemHeight > window.innerHeight)
 			elemPoint = window.innerHeight - window.innerHeight / animStart;
 
+		// add _active class if elem is shown
 		if (pageYOffset > elemOffset - elemPoint && pageYOffset < elemOffset + elemHeight) {
 			this.setState({ isActive: true });
 		} else {
@@ -63,14 +61,8 @@ export default class ScrollAppearance extends React.Component {
 							? "_active"
 							: ""}`,
 						ref: el => {
-							// Keep your own reference
-							// console.log(node ? node.getBoundingClientReact() : null);
+							// save this ref
 							this.element = el;
-							// // Call the original ref, if any
-							// const { ref } = child;
-							// if (typeof ref === "function") {
-							// 	ref(node);
-							// }
 						}
 					});
 

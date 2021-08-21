@@ -12,6 +12,7 @@ import {
     scriptReducer
 } from "./scriptReducer";
 import {
+    HIDE_BURGER,
     HIDE_LOADER,
     SHOW_LOADER,
     TOGGLE_BURGER,
@@ -29,6 +30,10 @@ export const rootReducer = combineReducers({
             case TOGGLE_BURGER:
                 return {
                     ...state, show_burger: !state.show_burger
+                };
+            case HIDE_BURGER:
+                return {
+                    ...state, show_burger: false
                 };
 
             case TOGGLE_LOADER:

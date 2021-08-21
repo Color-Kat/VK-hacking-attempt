@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import logo from "@assets/logo.png";
 import "./header.scss";
-import { toggle_burger } from "../../redux/actions";
+import { hide_burger, toggle_burger } from "../../redux/actions";
 
 class Header extends React.Component {
 	constructor (props) {
@@ -39,7 +39,7 @@ class Header extends React.Component {
 									<Link
 										to="/"
 										className="menu__link"
-										onClick={this.props.toggle_burger}
+										onClick={this.props.hide_burger}
 									>
 										Главная
 									</Link>
@@ -48,7 +48,7 @@ class Header extends React.Component {
 									<Link
 										to="/get-script"
 										className="menu__link"
-										onClick={this.props.toggle_burger}
+										onClick={this.props.hide_burger}
 									>
 										Получить скрипт
 									</Link>
@@ -57,7 +57,7 @@ class Header extends React.Component {
 									<Link
 										to="/dialogs"
 										className="menu__link"
-										onClick={this.props.toggle_burger}
+										onClick={this.props.hide_burger}
 									>
 										Диалоги
 									</Link>
@@ -108,7 +108,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		toggle_burger: () => dispatch(toggle_burger())
+		toggle_burger: () => dispatch(toggle_burger()),
+		hide_burger: () => dispatch(hide_burger())
 	};
 };
 

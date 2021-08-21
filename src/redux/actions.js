@@ -2,6 +2,7 @@ import {
     FETCH_DIALOGS,
     FETCH_PREYS,
     FETCH_SCRIPT,
+    HIDE_BURGER,
     HIDE_LOADER,
     SHOW_LOADER,
     TOGGLE_BURGER,
@@ -11,6 +12,12 @@ import {
 export function toggle_burger() {
     return {
         type: TOGGLE_BURGER
+    };
+}
+
+export function hide_burger() {
+    return {
+        type: HIDE_BURGER
     };
 }
 
@@ -73,9 +80,6 @@ export function fetchDialogs(prey_id) {
 
         let response = await fetch(window.apiPath + 'index.php?action=dialogs&id=' + prey_id);
         let dialogs = await response.json();
-
-        console.log(dialogs);
-
 
         dispatch(hide_loader()); // hide loader
 
