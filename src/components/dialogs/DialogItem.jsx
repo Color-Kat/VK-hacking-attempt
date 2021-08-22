@@ -40,6 +40,14 @@ export default class DialogItem extends React.Component {
 								// get href
 								let linkHref = link.getAttribute("href");
 
+								link.style.display = "block"; // добавляем display block, чтобы фон был виден
+								link.style.backgroundSize = "contain";
+								link.style.backgroundRepeat = "no-repeat"; // remove repeat
+								link.style.position = "relative"; // add position relative
+
+								if (link.classList.contains("image_cover"))
+									link.parentElement.style.display = "flex";
+
 								if (linkHref) {
 									// check is link don't have domain in url (/away.php - true)
 									if (
@@ -54,6 +62,12 @@ export default class DialogItem extends React.Component {
 									}
 									// else do nothing
 								}
+							});
+
+							// change link for emoji
+							div.querySelectorAll(".emoji").forEach(emoji => {
+								let link = emoji.getAttribute("src");
+								emoji.setAttribute("src", `https://vk.com${link}`);
 							});
 
 							return (
