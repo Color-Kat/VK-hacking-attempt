@@ -59,6 +59,7 @@ export default class DialogItem extends React.Component {
 										// this link is not absolute
 										// because add domain to link
 										link.setAttribute("href", `https://vk.com${linkHref}`);
+										link.setAttribute("target", "_blank");
 									}
 									// else do nothing
 								}
@@ -69,6 +70,10 @@ export default class DialogItem extends React.Component {
 								let link = emoji.getAttribute("src");
 								emoji.setAttribute("src", `https://vk.com${link}`);
 							});
+
+							div
+								.querySelectorAll("svg")
+								.forEach(svg => (svg.style.display = "none"));
 
 							return (
 								<li

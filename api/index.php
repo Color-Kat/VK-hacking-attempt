@@ -16,7 +16,7 @@ $reader->open("dialogs.json");
 $reader->read('dialogs'); // go to dialogs
 
 // initialize responce
-$response;
+$response = null;
 
 switch ($action) {
         // get from file hacker-script

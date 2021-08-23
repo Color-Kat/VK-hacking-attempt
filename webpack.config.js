@@ -22,7 +22,8 @@ const {
 } = require("clean-webpack-plugin");
 
 // Определяет, в каком моде запущено приложение с помощью process
-const isDev = process.env.NODE_ENV || "development" === "development";
+// const isDev = process.env.NODE_ENV || "development" === "development";
+const isDev = process.env.NODE_ENV === "development";
 
 // В зависимости от режима сборки (прод или дев) возвращает различные названия файлов
 const filename = ext => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
@@ -139,7 +140,8 @@ module.exports = {
     },
     output: {
         filename: filename("js"), // Название выходного файла сборки
-        path: path.resolve(__dirname, "dist") // Путь к dist
+        path: path.resolve(__dirname, "dist"), // Путь к dist
+        // publicPath: './'
     },
     resolve: {
         // Какие расширения файлов webpack будет искать сам

