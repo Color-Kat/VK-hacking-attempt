@@ -4,7 +4,8 @@ import bg from "@assets/images/main-bg.jpg";
 import hacker from "@assets/images/hacker.jpg";
 import code_img from "@assets/images/code.jpg";
 import console from "@assets/images/console.jpg";
-import result from "@assets/images/result.jpg";
+import run_script from "@assets/images/result.jpg";
+import dialogs from "@assets/images/dialogs.jpg";
 
 import "./home.scss";
 import ScrollAppearance from "../../components/appearance/Appearance";
@@ -113,7 +114,7 @@ export default class Home extends React.Component {
 						<section className="home__section home__section-console">
 							<div className="home__section-wrapper container">
 								<div className="home__section-illustration">
-									<img src={result} alt="script image" />
+									<img src={run_script} alt="script image" />
 								</div>
 								<div className="home__section-content">
 									<h2 className="home__section-title">Запустите скрипт</h2>
@@ -133,7 +134,7 @@ export default class Home extends React.Component {
 						<section className="home__section home__section-console">
 							<div className="home__section-wrapper container">
 								<div className="home__section-illustration">
-									<img src={console} alt="script image" />
+									<img src={dialogs} alt="script image" />
 								</div>
 								<div className="home__section-content">
 									<h2 className="home__section-title">Посмотрите результат</h2>

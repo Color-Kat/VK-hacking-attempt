@@ -22,7 +22,7 @@ class Dialogs extends React.Component {
 			<div id="dialogs" className="dialogs container">
 				<h1 className="dialogs__title title">Диалоги</h1>
 				<h5 className="dialogs__sub-title sub-title">
-					{this.props.dialogs[this.preyId] ? (
+					{this.props.dialogs && this.props.dialogs[this.preyId] ? (
 						this.props.dialogs[this.preyId]["name"]
 					) : (
 						""
@@ -31,7 +31,7 @@ class Dialogs extends React.Component {
 				</h5>
 
 				{/* check if id exists */}
-				{this.props.dialogs[this.preyId] ? (
+				{this.props.dialogs && this.props.dialogs[this.preyId] ? (
 					<ul className="dialogs__grid">
 						{/* check if dialogs exist  */}
 						{Object.keys(this.props.dialogs[this.preyId]).length > 0 ? (
@@ -56,7 +56,7 @@ class Dialogs extends React.Component {
 						)}
 					</ul>
 				) : (
-					<span className="dialogs__empty">Ничего не найдено</span>
+					<h2 className="dialogs__empty error">Ничего не найдено</h2>
 				)}
 			</div>
 		);

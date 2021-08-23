@@ -9,6 +9,7 @@ import GetScriptPage from "./getScriptPage/GetScriptPage";
 import Loader from "../components/loader/Loader";
 import Preys from "./dialogs/Preys";
 import Dialogs from "./dialogs/Dialogs";
+import NotFound from "./404/NotFound";
 
 class App extends React.Component {
 	constructor () {
@@ -40,6 +41,10 @@ class App extends React.Component {
 
 							<Route path="/dialogs/:id">
 								<Dialogs />
+							</Route>
+
+							<Route path="/">
+								<NotFound />
 							</Route>
 						</Switch>
 					</div>

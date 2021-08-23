@@ -141,7 +141,7 @@ module.exports = {
     output: {
         filename: filename("js"), // Название выходного файла сборки
         path: path.resolve(__dirname, "dist"), // Путь к dist
-        // publicPath: './'
+        publicPath: './'
     },
     resolve: {
         // Какие расширения файлов webpack будет искать сам

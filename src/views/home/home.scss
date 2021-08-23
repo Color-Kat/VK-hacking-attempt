@@ -14,8 +14,12 @@
             padding: 50px 60px;
             border-radius: 20px;
             background: rgba(0, 0, 0, .4);
-            // width: 500px;
-            // box-sizing: content-box;
+
+            @media (max-width: 620px) {
+                padding: 15px 15px;
+                margin: 0;
+                width: 90vw !important;
+            }
 
             @media (max-width: $header_show_menu_icon_break_point) {
                 width: max-content;
@@ -32,11 +36,19 @@
                 font-size: 38px;
                 white-space: nowrap;
                 margin: 0 0 20px;
+
+                @media (max-width: 620px) {
+                    font-size: 32px;
+                }
             }
 
             .home__sub-title {
                 font-size: 20px;
                 line-height: 28px;
+
+                @media (max-width: 620px) {
+                    font-size: 17px;
+                }
             }
         }
 
@@ -112,6 +124,10 @@
             text-align: center;
             margin-bottom: 60px;
             font-size: 45px;
+
+            @media (max-width: 620px) {
+                font-size: 35px;
+            }
         }
 
         // reverse order
@@ -155,6 +171,14 @@
                 justify-content: space-between;
                 align-items: center;
 
+                @media (max-width: 620px) {
+                    flex-direction: column !important;
+
+                    * {
+                        width: 100% !important;
+                    }
+                }
+
                 * {
                     width: 50%;
                 }
@@ -165,6 +189,12 @@
                     overflow: hidden;
                     margin: 0 20px 0 0;
                     min-height: 300px;
+
+                    @media (max-width: 620px) {
+                        max-height: 300px;
+                        max-width: 90%;
+                        margin: 0 0 20px 0 !important;
+                    }
 
                     img {
                         position: absolute;
@@ -178,6 +208,11 @@
                 .home__section-content {
                     position: relative;
                     margin: 0 0 0 20px;
+
+                    @media (max-width: 620px) {
+                        margin: 0 !important;
+                        padding-bottom: 20px;
+                    }
 
                     * {
                         width: 100%;

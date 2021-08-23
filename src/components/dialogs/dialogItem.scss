@@ -4,6 +4,10 @@
     border-radius: 10px;
     background: #1f1f1f;
 
+    @media (max-width: 620px) {
+        padding: 25px 20px;
+    }
+
     &.active .arrow-down {
         transform: rotate(135deg);
     }
@@ -33,6 +37,8 @@
         padding-top: 30px;
         max-height: 500px;
         overflow-y: auto;
+
+
 
         li {
             margin: 10px 0;

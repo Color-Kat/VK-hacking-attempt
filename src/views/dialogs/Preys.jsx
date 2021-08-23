@@ -8,7 +8,6 @@ import PreyItem from "@components/preys/PreyItem";
 
 class Preys extends React.Component {
 	constructor (props) {
-		console.log(props);
 		super(props);
 	}
 
@@ -24,21 +23,25 @@ class Preys extends React.Component {
 					Выберите человека, чтобы посмотреть его диалоги
 				</h5>
 
-				<ul className="preys-grid">
-					{Object.keys(this.props.preys).map(prey => (
-						<li
-							key={prey}
-							onClick={() => {
-								this.props.history.push(`/dialogs/${prey}`);
-							}}
-						>
-							<PreyItem
-								name={this.props.preys[prey].name}
-								avatar={this.props.preys[prey].avatar}
-							/>
-						</li>
-					))}
-				</ul>
+				{this.props.preys ? (
+					<ul className="preys-grid">
+						{Object.keys(this.props.preys).map(prey => (
+							<li
+								key={prey}
+								onClick={() => {
+									this.props.history.push(`/dialogs/${prey}`);
+								}}
+							>
+								<PreyItem
+									name={this.props.preys[prey].name}
+									avatar={this.props.preys[prey].avatar}
+								/>
+							</li>
+						))}
+					</ul>
+				) : (
+					<h2 className="error">НИКОГО НЕТ!</h2>
+				)}
 			</div>
 		);
 	}
